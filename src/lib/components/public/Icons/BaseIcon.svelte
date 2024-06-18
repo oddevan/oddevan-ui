@@ -1,9 +1,10 @@
 <script lang="ts">
 	interface IconProps {
 		alt?: string,
+		children: Snippet
 	};
 
-	let { alt }: IconProps = $props();
+	let { alt, children }: IconProps = $props();
 
 	let spanProps: Record<string, string> = {};
 	if (alt) {
@@ -27,5 +28,5 @@
 </style>
 
 <span {...spanProps}>
-	<slot />
+	{@render children()}
 </span>

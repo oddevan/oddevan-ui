@@ -2,6 +2,14 @@
 
 Because [shadcn said to make my own](https://shadcn-svelte.com/). So I did.
 
+Real talk: I love the way shadcn UI looks. I love what the shadcn-svelte people are doing and the projects they're building on top of. I want to start adopting Melt UI and Formsnap.
+
+But I'm kinda all-done with Tailwind. I appreciate it for what it is and the problems that it solves, but Svelte's built-in scoped styles really does what I'm looking for, and I find `margin-block-end: 1em` more readable than `mb-4`.
+
+So this is the worst of all possible worlds: Tailwind and shadcn components hiding behind some ham-fisted Svelte 5 with custom CSS. But the idea is to get really opinionated with the component APIs so that eventually I can replace the shadcn components with just... components.
+
+Anyway, this is more of an experiment than anything else. Use at your own (very substantial!) risk.
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:

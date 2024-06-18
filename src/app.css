@@ -16,6 +16,9 @@
  
 @layer base {
   :root {
+    --canvas-hsl: var(--canvas-light-hsl);
+    --action-hsl: var(--action-light-hsl);
+
     --background: var(--canvas-light-hsl, 0 0% 100%);
     --foreground: 20 14.3% 4.1%;
  
@@ -49,6 +52,9 @@
   }
  
   .dark {
+    --canvas-hsl: var(--canvas-dark-hsl);
+    --action-hsl: var(--action-dark-hsl);
+  
     --background: var(--canvas-dark-hsl, 20 14.3% 4.1%);
     --foreground: 60 9.1% 97.8%;
  

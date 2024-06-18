@@ -61,18 +61,22 @@
 
 <p>For a row of buttons (like the end of a form)</p>
 
+<div class="max-w-lg">
 <ButtonBar>
 	<Button primary>OK</Button>
 </ButtonBar>
 
 <ButtonBar>
+	<Button destructive>Discard</Button>
+	<Button>Save</Button>
 	{#snippet leading()}
 		<Button>Cancel</Button>
 	{/snippet}
-	<Button>Save</Button>
-	<Button destructive>Discard</Button>
 </ButtonBar>
+</div>
 
 <h2>AppTabs</h2>
 
+<div class="max-w-xs">
 <AppTabs action={tabAction} tabs={tabLinks} />
+</div>
