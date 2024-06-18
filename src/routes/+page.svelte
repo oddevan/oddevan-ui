@@ -77,6 +77,18 @@
 
 <h2>AppTabs</h2>
 
-<div class="max-w-xs">
-<AppTabs action={tabAction} tabs={tabLinks} />
+<div class="max-w-lg border">
+	<AppTabs action={tabAction} tabs={tabLinks}>
+		<h4>Headline</h4>
+
+		<p>This is normal text in the app.</p>
+	</AppTabs>
+</div>
+
+<div class="max-w-screen-lg border">
+	<AppTabs action={tabAction} tabs={tabLinks}>
+		<h4>Headline</h4>
+		
+		<p>This is normal text in the app.</p>
+	</AppTabs>
 </div>

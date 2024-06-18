@@ -11,6 +11,9 @@
 
     --action-light-hsl: 210 50% 40%;
     --action-dark-hsl: 60 100% 40%;
+
+    --border-light-hsl: 20 5.9% 90%;
+    --border-dark-hsl: 12 6.5% 30%
   }
 }
  
@@ -18,6 +21,7 @@
   :root {
     --canvas-hsl: var(--canvas-light-hsl);
     --action-hsl: var(--action-light-hsl);
+    --border-hsl: var(--border-light-hsl);
 
     --background: var(--canvas-light-hsl, 0 0% 100%);
     --foreground: 20 14.3% 4.1%;
@@ -31,7 +35,7 @@
     --card: 0 0% 100%;
     --card-foreground: 20 14.3% 4.1%;
  
-    --border: 20 5.9% 90%;
+    --border: var(--border-light-hsl, 20 5.9% 90%);
     --input: 20 5.9% 90%;
  
     --primary: var(--action-light-hsl, 24 9.8% 10%);
@@ -54,6 +58,7 @@
   .dark {
     --canvas-hsl: var(--canvas-dark-hsl);
     --action-hsl: var(--action-dark-hsl);
+    --border-hsl: var(--border-dark-hsl);
   
     --background: var(--canvas-dark-hsl, 20 14.3% 4.1%);
     --foreground: 60 9.1% 97.8%;
@@ -67,7 +72,7 @@
     --card: 20 14.3% 4.1%;
     --card-foreground: 60 9.1% 97.8%;
  
-    --border: 12 6.5% 15.1%;
+    --border: var(--border-dark-hsl, 12 6.5% 15.1%);
     --input: 12 6.5% 15.1%;
  
     --primary: var(--action-dark-hsl, 60 9.1% 97.8%);
@@ -93,4 +98,13 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+a {
+  color: hsl(var(--action-hsl));
+}
+
+.make-container {
+  container-type: inline-size;
+  display: relative;
 }
