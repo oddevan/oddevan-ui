@@ -1,14 +1,16 @@
 <script lang="ts">
+	import type { Snippet, Component } from "svelte";
+
 	export interface AppTabLinkItem {
 		href: string
 		label: string
-		icon: SvelteComponent
+		icon: Component
 	}
 
 	export interface AppTabActionItem {
 		action: () => void
 		label: string
-		icon: SvelteComponent
+		icon: Component
 	}
 
 	interface AppTabsProps {
@@ -17,7 +19,7 @@
 		children: Snippet
 	}
 
-	let { tabs, action, children } = $props();
+	let { tabs, action, children }: AppTabsProps = $props();
 </script>
 
 <style>
@@ -101,17 +103,7 @@
 
 <div class="apptabshell">
 	<nav class="apptabs">
-		{#each tabs as {label, icon, href}, index}
-			{#if index == (tabs.length / 2)}
-				<button onclick={action.action}>
-					<span class="icon">
-						<svelte:component this={action.icon} />
-					</span>
-					<span class="label">
-						{action.label}
-					</span>
-				</button>
-			{/if}
+		{#each tabs as {label, icon, href}}
 			<a {href}>
 				<span class="icon">
 					<svelte:component this={icon} />
@@ -121,6 +113,16 @@
 				</span>
 			</a>
 		{/each}
+		{#if action}
+			<button onclick={action.action}>
+				<span class="icon">
+					<svelte:component this={action.icon} />
+				</span>
+				<span class="label">
+					{action.label}
+				</span>
+			</button>
+		{/if}
 	</nav>
 
 	<div class="apptabcontent">

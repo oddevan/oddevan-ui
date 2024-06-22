@@ -4,7 +4,12 @@
 </script>
 
 <style>
+	div.total {
+		margin: 1rem;
+	}
 </style>
 
-<ModeWatcher />
-<slot></slot>
+<div class="total">
+	<ModeWatcher />
+	<slot></slot>
+</div>
