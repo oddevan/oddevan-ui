@@ -77,7 +77,7 @@
 
 <h2>AppTabs</h2>
 
-<div class="max-w-lg border">
+<div class="max-w-lg border make-container">
 	<AppTabs action={tabAction} tabs={tabLinks}>
 		<h4>Headline</h4>
 
@@ -85,7 +85,7 @@
 	</AppTabs>
 </div>
 
-<div class="max-w-screen-lg border">
+<div class="max-w-screen-lg border make-container">
 	<AppTabs action={tabAction} tabs={tabLinks}>
 		<h4>Headline</h4>
 		

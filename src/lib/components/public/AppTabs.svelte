@@ -20,6 +20,8 @@
 	}
 
 	let { tabs, action, children }: AppTabsProps = $props();
+
+	let buttonStyle = `--action-button-position: ${(tabs.length / 2) + 1}`;
 </script>
 
 <style>
@@ -31,17 +33,13 @@
 	}
 
 	nav.apptabs {
-		display: flex;
-		flex-direction: row;
+		display: grid;
+		grid-auto-flow: column;
 		justify-content: space-between;
 		border-top: 1px solid hsl(var(--border));
+		width: 100%;
 		position: absolute;
-		bottom: 0rem;
-
-		a, button {
-			display: flex;
-			padding: 1em;
-		}
+		bottom: 0;
 
 		a {
 			display: flex;
@@ -53,6 +51,8 @@
 		}
 
 		button {
+			display: flex;
+			grid-column: var(--action-button-position);
 			margin: .5em;
 			padding: .5em;
 			background: hsl(var(--action-hsl));
@@ -72,18 +72,23 @@
 	@container (min-width: 45rem) {
 		div.apptabshell {
 			padding-bottom: 0;
-			padding-inline-start: 16rem;
+			display: grid;
+			grid-template-columns: 15rem auto;
+			gap: 1rem;
 		}
 
 		nav.apptabs {
-			width: 15rem;
-			float: inline-start;
 			border-top: none;
 			border-inline-end: 1px solid hsl(var(--border));
-			flex-direction: column;
+			grid-auto-flow: row;
+			grid-template-columns: 1fr;
 			justify-content: flex-start;
 			position: sticky;
 			top: 0;
+
+			button {
+				grid-column: 1;
+			}
 		}
 
 		a, button {
@@ -114,7 +119,7 @@
 			</a>
 		{/each}
 		{#if action}
-			<button onclick={action.action}>
+			<button onclick={action.action} style={buttonStyle}>
 				<span class="icon">
 					<svelte:component this={action.icon} />
 				</span>
