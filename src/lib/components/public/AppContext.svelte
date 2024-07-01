@@ -1,13 +1,7 @@
 <script lang="ts">
-	import type { AppTabLinkItem } from './AppTabs.svelte';
 	import type { Snippet } from 'svelte';
 	import Avatar from './Avatar.svelte';
-
-	export interface AppTabAvatarItem {
-		href: string
-		label: string
-		src: string
-	};
+	import type { AppTabAvatarItem, AppTabLinkItem } from '../types.js';
 
 	interface AppContextProps {
 		brand: AppTabLinkItem

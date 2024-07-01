@@ -1,17 +1,6 @@
 <script lang="ts">
-	import type { Snippet, Component } from "svelte";
-
-	export interface AppTabLinkItem {
-		href: string
-		label: string
-		icon: Component
-	}
-
-	export interface AppTabActionItem {
-		action: () => void
-		label: string
-		icon: Component
-	}
+	import type { Snippet } from "svelte";
+	import type { AppTabActionItem, AppTabLinkItem } from "../types.js";
 
 	interface AppTabsProps {
 		tabs: [AppTabLinkItem]
