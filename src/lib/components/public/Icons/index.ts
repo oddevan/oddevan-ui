@@ -19,7 +19,7 @@ export { default as Reblog } from './Reblog.svelte';
 export { default as Refresh } from './Refresh.svelte';
 export { default as Settings } from './Settings.svelte';
 export { default as Site } from './Site.svelte';
-export { default as Snek } from './Snek.svelte';
+export { default as Smolblog } from './Smolblog.svelte';
 export { default as Status } from './Status.svelte';
 export { default as Trash } from './Trash.svelte';
 export { default as Tumblr } from './Tumblr.svelte';

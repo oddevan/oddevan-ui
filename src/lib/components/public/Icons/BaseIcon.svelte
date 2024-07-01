@@ -3,10 +3,11 @@
 
 	interface IconProps {
 		alt?: string,
+		size?: string,
 		children: Snippet
 	};
 
-	let { alt, children }: IconProps = $props();
+	let { alt, size, children }: IconProps = $props();
 
 	let spanProps: Record<string, string> = {};
 	if (alt) {
@@ -14,13 +15,16 @@
 	} else {
 		spanProps['aria-hidden'] = 'true';
 	}
+	if (size) {
+		spanProps['style'] = `--icon-size: ${size}`;
+	}
 </script>
 
 <style>
 	span {
 		display: block;
-		width: 1.5em;
-		height: 1.5em;
+		width: var(--icon-size, 1em);
+		height: var(--icon-size, 1em);
 
 		& :global(svg) {
 			width: 100%;

@@ -100,7 +100,7 @@
 		{#each tabs as {label, icon, href}}
 			<a {href}>
 				<span class="icon">
-					<svelte:component this={icon} />
+					<svelte:component this={icon} size="1.5em" />
 				</span>
 				<span class="label">
 					{label}
@@ -110,7 +110,7 @@
 		{#if action}
 			<button onclick={action.action} style={buttonStyle}>
 				<span class="icon">
-					<svelte:component this={action.icon} />
+					<svelte:component this={action.icon} size="1.5em" />
 				</span>
 				<span class="label">
 					{action.label}

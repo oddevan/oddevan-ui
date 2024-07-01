@@ -2,9 +2,9 @@
 	import BaseIcon, { type IconProps } from "./BaseIcon.svelte";
 
 	interface $$Props extends IconProps {
-		mono?: boolean;
+		brandColor?: boolean;
 	};
-	export let mono = false;
+	export let brandColor = false;
 </script>
 
 <BaseIcon {...$$restProps}>
@@ -18,7 +18,7 @@
 	viewBox="0 0 2000 1500"
 	style="enable-background:new 0 0 2000 1500;"
 	xml:space="preserve"
-	fill={mono ? 'currentColor' : '#88d491'}
+	fill={brandColor ? '#88d491' : 'currentColor' }
 >
 	<g>
 		<path

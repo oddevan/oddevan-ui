@@ -31,5 +31,5 @@ export type MenuEntry = MenuItem | 'separator' | Menu
 export interface Menu {
 	icon?: Component
 	label: string
-	items: [MenuEntry]
+	items: MenuEntry[]
 }

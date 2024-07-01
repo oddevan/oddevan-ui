@@ -14,7 +14,7 @@
 		label: 'New thing'
 	};
 
-	const tabLinks: [AppTabLinkItem] = [
+	const tabLinks: AppTabLinkItem[] = [
 		{ href: '#', icon: Icons.Status, label: 'Status' },
 		{ href: '#', icon: Icons.Reader, label: 'Reader' },
 		{ href: '#', icon: Icons.Upload, label: 'Upload' },
@@ -111,10 +111,10 @@
 
 <div class="max-w-sm border">
 	<ListItem title="A Thing" actions={demoMenu}>
-		{#snippet icon()}<Icons.Tumblr/>{/snippet}
+		{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
 	</ListItem>
 	<ListItem title="Another Thing" subtitle="Different from the first thing">
-		{#snippet icon()}<Icons.Microblog/>{/snippet}
+		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
 	</ListItem>
 </div>
 

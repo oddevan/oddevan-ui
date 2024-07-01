@@ -23,7 +23,8 @@
     <Button builders={[builder]}>
 			{#if menu.icon}
 				{@const alt = hideLabel ? menu.label : undefined}
-				<svelte:component this={menu.icon} {alt} />
+				{@const size = hideLabel ? '1.5em' : undefined}
+				<svelte:component this={menu.icon} {alt} {size} />
 			{/if}
 			{#if !hideLabel || !menu.icon}
 				{menu.label}
