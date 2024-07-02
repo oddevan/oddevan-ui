@@ -10,11 +10,25 @@
 		children: Snippet;
 	}
 
-	let { primary = false, destructive = false, disabled = false, children, ...restProps }: ButtonProps = $props();
+	let {
+		primary = false,
+		destructive = false,
+		disabled = false,
+		children,
+		...restProps
+	}: ButtonProps = $props();
 
 	let variant: 'destructive'|'default'|'outline' = destructive ? 'destructive' : primary ? 'default' : 'outline';
 </script>
 
-<Button {variant} {disabled} {...restProps}>
-	{@render children()}
-</Button>
+<style>
+	span :global(button[data-button-root]) {
+		gap: .5em;
+	}
+</style>
+
+<span>
+	<Button {variant} {disabled} {...restProps}>
+		{@render children()}
+	</Button>
+</span>

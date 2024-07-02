@@ -7,6 +7,7 @@
 	import * as Icons from "$lib/components/public/Icons";
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import type { AppTabActionItem, AppTabLinkItem, Menu } from "$lib/components/types.js";
+	import Card from "$lib/components/public/Card.svelte";
 
 	const tabAction: AppTabActionItem = {
 		action: () => { console.log('AppTabActionItem'); },
@@ -116,8 +117,32 @@
 	<ListItem title="Another Thing" subtitle="Different from the first thing">
 		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
 	</ListItem>
+	<ListItem title="A secret third thing" subtitle="Yet another thing" actions={demoMenu}>
+		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+	</ListItem>
 </div>
 
 <h2>Dropdown Menu</h2>
 
 <DropdownMenu menu={demoMenu} />
+
+<h2>Card</h2>
+
+<div class="max-w-sm">	
+	<Card title="Channels">
+		<ListItem title="plotholefragments" subtitle="plotholefragments.tumblr.com" actions={demoMenu}>
+			{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
+		</ListItem>
+		<ListItem title="oddevan" subtitle="oddevan.com" actions={demoMenu}>
+			{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+		</ListItem>
+		{#snippet footer()}
+			<ButtonBar>
+				<Button primary>
+					<Icons.Plus size="1.5em" />
+					Add Channel
+				</Button>
+			</ButtonBar>
+		{/snippet}
+	</Card>
+</div>

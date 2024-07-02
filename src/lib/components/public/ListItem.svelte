@@ -18,7 +18,7 @@
 		display: flex;
 		flex-direction: row;
 		gap: .5em;
-		padding: .5em 1em;
+		padding: .75em 1em;
 		align-items: center;
 
 		.titlebox {
@@ -34,6 +34,10 @@
 				font-size: .7em;
 				color: hsl(var(--muted-foreground));
 			}
+		}
+
+		.actionbox :global(button) {
+			border: 0;
 		}
 	}
 </style>
