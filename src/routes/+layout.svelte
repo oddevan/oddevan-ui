@@ -5,6 +5,9 @@
 	import { Alert, Home } from "$lib/components/public/Icons/index.js";
 
 	import "../app.css";
+	import SiteLogo from "./SiteLogo.svelte";
+
+	let { children } = $props();
 
 	const tabs: AppTabLinkItem[] = [
 		{ href: '/', icon: Home, label: 'Home' },
@@ -32,6 +35,9 @@
 
 <div class="make-container">
 	<AppTabs {tabs}>
-		<slot />
+		{#snippet header()}
+			<SiteLogo/>
+		{/snippet}
+		{@render children()}
 	</AppTabs>
 </div>
