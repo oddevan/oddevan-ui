@@ -6,9 +6,9 @@ Real talk: I love the way shadcn UI looks. I love what the shadcn-svelte people 
 
 But I'm kinda all-done with Tailwind. I appreciate it for what it is and the problems that it solves, but Svelte's built-in scoped styles really does what I'm looking for, and I find `margin-block-end: 1em` more readable than `mb-4`.
 
-So this is the worst of all possible worlds: Tailwind and shadcn components hiding behind some ham-fisted Svelte 5 with custom CSS. But the idea is to get really opinionated with the component APIs so that eventually I can replace the shadcn components with just... components.
+So this is the worst of all possible worlds: Tailwind and shadcn components hiding behind some ham-fisted Svelte 5 with custom CSS. But the idea is to get really opinionated with the component APIs so that eventually I can remove Tailwind from the shadcn components. Or just use the [Bits UI](https://www.bits-ui.com/) primitives. Or just use the [Melt UI](https://melt-ui.com) builders.
 
-Anyway, this is more of an experiment than anything else. Use at your own (very substantial!) risk.
+Anyway, this is more of an experiment than anything else. No idea if this will actually be useful to anyone, including myself. Use at your own (very substantial!) risk.
 
 ## Developing
 
