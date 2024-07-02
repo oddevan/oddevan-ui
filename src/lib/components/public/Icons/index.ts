@@ -1,4 +1,3 @@
-export { default as AddMedia } from './AddMedia.svelte';
 export { default as Alert } from './Alert.svelte';
 export { default as ArrowOut } from './ArrowOut.svelte';
 export { default as Check } from './Check.svelte';

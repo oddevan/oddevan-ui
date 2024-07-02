@@ -26,10 +26,6 @@
 			display: flex;
 			flex-direction: column;
 
-			.title {
-				/* font-weight: bold; */
-			}
-
 			.subtitle {
 				font-size: .7em;
 				color: hsl(var(--muted-foreground));

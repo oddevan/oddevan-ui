@@ -34,22 +34,6 @@
 	};
 </script>
 
-<style>
-	h1 {
-		font-size: 3rem;
-		font-weight: bold;
-	}
-
-	h2 {
-		font-size: 2rem;
-		font-weight: bold;
-	}
-
-	h1, h2, p {
-		margin-block-end: 1em;
-	}
-</style>
-
 <h1>oddEvan UI</h1>
 
 <p>Because <a href="https://shadcn-svelte.com/">shadcn-svelte</a> said to make my own system.</p>

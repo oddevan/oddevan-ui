@@ -26,7 +26,7 @@ export interface MenuItem {
 	action?: () => void
 }
 
-export type MenuEntry = MenuItem | 'separator' | Menu
+export type MenuEntry = MenuItem | 'separator' // | Menu
 
 export interface Menu {
 	icon?: Component

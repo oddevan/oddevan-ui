@@ -36,19 +36,22 @@
 			{#each menu.items as item}
 				{#if item === 'separator'}
 					<DropdownMenu.Separator />
-				{:else if !!item.items}
-					<DropdownMenu.Item>
-						<span>Submenu</span>
-					</DropdownMenu.Item>
 				{:else}
 					<DropdownMenu.Item>
+						{@const tag = item.href ? 'a' : item.action ? 'button' : 'span'}
+						<svelte:element
+							this={tag}
+							href={item.href ?? undefined}
+							onclick={item.action ?? undefined}
+						>
 							{#if item.icon}
 								<svelte:component this={item.icon} />
 							{/if}
 							<span>{item.label}</span>
 							{#if item.shortcut}
-								<DropdownMenu.Shortcut>⌘+T</DropdownMenu.Shortcut>
+								<DropdownMenu.Shortcut>{item.shortcut}</DropdownMenu.Shortcut>
 							{/if}
+						</svelte:element>
 					</DropdownMenu.Item>
 				{/if}
 			{/each}
