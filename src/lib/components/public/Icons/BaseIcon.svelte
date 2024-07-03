@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
 
-	interface IconProps {
+	export interface IconProps {
 		alt?: string,
 		size?: string,
 		children: Snippet
