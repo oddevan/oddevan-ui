@@ -37,21 +37,17 @@
 				{#if item === 'separator'}
 					<DropdownMenu.Separator />
 				{:else}
-					<DropdownMenu.Item>
-						{@const tag = item.href ? 'a' : item.action ? 'button' : 'span'}
-						<svelte:element
-							this={tag}
-							href={item.href ?? undefined}
-							onclick={item.action ?? undefined}
-						>
-							{#if item.icon}
-								<svelte:component this={item.icon} />
-							{/if}
-							<span>{item.label}</span>
-							{#if item.shortcut}
-								<DropdownMenu.Shortcut>{item.shortcut}</DropdownMenu.Shortcut>
-							{/if}
-						</svelte:element>
+					<DropdownMenu.Item
+						href={item.href ?? undefined}
+						onclick={item.action ?? undefined}
+					>
+						{#if item.icon}
+							<svelte:component this={item.icon} />
+						{/if}
+						<span>{item.label}</span>
+						{#if item.shortcut}
+							<DropdownMenu.Shortcut>{item.shortcut}</DropdownMenu.Shortcut>
+						{/if}
 					</DropdownMenu.Item>
 				{/if}
 			{/each}
