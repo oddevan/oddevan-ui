@@ -37,10 +37,8 @@
 				{#if item === 'separator'}
 					<DropdownMenu.Separator />
 				{:else}
-					<DropdownMenu.Item
-						href={item.href ?? undefined}
-						onclick={item.action ?? undefined}
-					>
+					{@const itemProps = item.action ? { onclick: item.action } : { href: item.href }}
+					<DropdownMenu.Item {...itemProps}>
 						{#if item.icon}
 							<svelte:component this={item.icon} />
 						{/if}
