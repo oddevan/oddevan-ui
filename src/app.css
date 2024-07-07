@@ -106,7 +106,6 @@ a {
 
 .make-container {
   container-type: inline-size;
-  display: relative;
 }
 
 body {

@@ -17,9 +17,13 @@
 <style>
 	div.apptabshell {
 		container-type: inline-size;
-		display: relative;
 		contain: paint;
 		padding-bottom: 4rem;
+	}
+
+	div.apptabcontent {
+		height: calc(100vh - 3em);
+		overflow-y: auto;
 	}
 
 	nav.apptabs {
@@ -31,7 +35,7 @@
 		position: absolute;
 		bottom: 0;
 
-		a {
+		& a {
 			display: flex;
 			padding: 1em;
 	
@@ -40,7 +44,7 @@
 			}
 		}
 
-		button {
+		& button {
 			display: flex;
 			grid-column: var(--action-button-position);
 			margin: .5em;
