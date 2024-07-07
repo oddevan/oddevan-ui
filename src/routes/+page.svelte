@@ -48,12 +48,14 @@
 	<Button>Default</Button>
 	<Button primary>Primary</Button>
 	<Button destructive>Destructive</Button>
+	<Button noborder>No Border</Button>
 </div>
 
 <div>
 	<Button disabled>Default (Disabled)</Button>
 	<Button disabled primary>Primary (Disabled)</Button>
 	<Button disabled destructive>Destructive (Disabled)</Button>
+	<Button disabled noborder>No Border (Disabled)</Button>
 </div>
 
 <h2>ButtonBar</h2>

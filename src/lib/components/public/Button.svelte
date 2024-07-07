@@ -6,6 +6,7 @@
 		primary?: boolean;
 		destructive?: boolean;
 		disabled?: boolean;
+		noborder?: boolean;
 		// action?: (e?: Event) => void;
 		children: Snippet;
 	}
@@ -14,11 +15,13 @@
 		primary = false,
 		destructive = false,
 		disabled = false,
+		noborder = false,
 		children,
 		...restProps
 	}: ButtonProps = $props();
 
-	let variant: 'destructive'|'default'|'outline' = destructive ? 'destructive' : primary ? 'default' : 'outline';
+	let variant: 'destructive'|'default'|'outline'|'ghost' =
+		destructive ? 'destructive' : primary ? 'default' : noborder ? 'ghost' : 'outline';
 </script>
 
 <style>
