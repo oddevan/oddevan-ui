@@ -14,7 +14,6 @@
  
   let { open = $bindable(false), title, subtitle, children, footer }: SheetProps = $props();
   const query = new MediaQuery("(min-width: 768px)");
-	$inspect(open, title);
 </script>
  
 {#if query.matches}
