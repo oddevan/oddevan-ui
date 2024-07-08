@@ -7,7 +7,7 @@
 		destructive?: boolean;
 		disabled?: boolean;
 		noborder?: boolean;
-		// action?: (e?: Event) => void;
+		action?: (e?: Event) => void;
 		children: Snippet;
 	}
 
@@ -16,6 +16,7 @@
 		destructive = false,
 		disabled = false,
 		noborder = false,
+		action = () => {},
 		children,
 		...restProps
 	}: ButtonProps = $props();
@@ -31,7 +32,7 @@
 </style>
 
 <span>
-	<Button {variant} {disabled} {...restProps}>
+	<Button {variant} {disabled} {...restProps} on:click={action} on:keydown={action}>
 		{@render children()}
 	</Button>
 </span>

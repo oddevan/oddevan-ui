@@ -8,6 +8,7 @@
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import type { AppTabActionItem, AppTabLinkItem, Menu } from "$lib/components/types.js";
 	import Card from "$lib/components/public/Card.svelte";
+	import Sheet from "$lib/components/public/Sheet.svelte";
 
 	const tabAction: AppTabActionItem = {
 		action: () => { console.log('AppTabActionItem'); },
@@ -32,6 +33,8 @@
 			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
 		]
 	};
+
+	let openSheet = false;
 </script>
 
 <h1>oddEvan UI</h1>
@@ -132,3 +135,27 @@
 		{/snippet}
 	</Card>
 </div>
+
+<h2>Sheet</h2>
+
+<p>This is more analogous to the SwiftUI Sheet than the Shadcn Sheet. It uses Drawer for mobile views and Dialog for
+	desktop views.</p>
+
+<Button primary action={ () => openSheet = !openSheet }>Manage Channels</Button>
+
+<Sheet bind:open={openSheet} title="Manage Channels">
+	<ListItem title="plotholefragments" subtitle="plotholefragments.tumblr.com" actions={demoMenu}>
+		{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
+	</ListItem>
+	<ListItem title="oddevan" subtitle="oddevan.com" actions={demoMenu}>
+		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+	</ListItem>
+	{#snippet footer()}
+		<ButtonBar>
+			<Button primary>
+				<Icons.Plus size="1.5em" />
+				Add Channel
+			</Button>
+		</ButtonBar>
+	{/snippet}
+</Sheet>

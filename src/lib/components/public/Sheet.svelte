@@ -1,68 +1,54 @@
 <script lang="ts">
-  import { mediaQuery } from "svelte-legos";
+	import { MediaQuery } from 'runed';
   import * as Dialog from "$lib/components/ui/dialog/index.js";
   import * as Drawer from "$lib/components/ui/drawer/index.js";
-  import { Input } from "$lib/components/ui/input/index.js";
-  import { Label } from "$lib/components/ui/label/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
+	import type { Snippet } from "svelte";
+
+	interface SheetProps {
+		open?: boolean
+		title?: string
+		subtitle?: string
+		children: Snippet
+		footer?: Snippet
+	}
  
-  let open = false;
-  const isDesktop = mediaQuery("(min-width: 768px)");
+  let { open = $bindable(false), title, subtitle, children, footer }: SheetProps = $props();
+  const query = new MediaQuery("(min-width: 768px)");
+	$inspect(open, title);
 </script>
  
-{#if $isDesktop}
+{#if query.matches}
   <Dialog.Root bind:open>
-    <Dialog.Trigger asChild let:builder>
-      <Button variant="outline" builders={[builder]}>Edit Profile</Button>
-    </Dialog.Trigger>
-    <Dialog.Content class="sm:max-w-[425px]">
-      <Dialog.Header>
-        <Dialog.Title>Edit profile</Dialog.Title>
-        <Dialog.Description>
-          Make changes to your profile here. Click save when you're done.
-        </Dialog.Description>
-      </Dialog.Header>
-      <form class="grid items-start gap-4">
-        <div class="grid gap-2">
-          <Label for="email">Email</Label>
-          <Input type="email" id="email" value="shadcn@example.com" />
-        </div>
-        <div class="grid gap-2">
-          <Label for="username">Username</Label>
-          <Input id="username" value="@shadcn" />
-        </div>
-        <Button type="submit">Save changes</Button>
-      </form>
+    <Dialog.Content class="max-w-md">
+			{#if title || subtitle }
+				<Dialog.Header>
+					{#if title}<Dialog.Title>{ title }</Dialog.Title>{/if}
+					{#if subtitle}<Dialog.Description>{ subtitle }</Dialog.Description>{/if}
+				</Dialog.Header>
+			{/if}
+			{@render children()}
+			{#if footer}
+				<Dialog.Footer>
+					{@render footer()}
+				</Dialog.Footer>
+			{/if}
     </Dialog.Content>
   </Dialog.Root>
 {:else}
   <Drawer.Root bind:open>
-    <Drawer.Trigger asChild let:builder>
-      <Button variant="outline" builders={[builder]}>Edit Profile</Button>
-    </Drawer.Trigger>
     <Drawer.Content>
-      <Drawer.Header class="text-left">
-        <Drawer.Title>Edit profile</Drawer.Title>
-        <Drawer.Description>
-          Make changes to your profile here. Click save when you're done.
-        </Drawer.Description>
-      </Drawer.Header>
-      <form class="grid items-start gap-4 px-4">
-        <div class="grid gap-2">
-          <Label for="email">Email</Label>
-          <Input type="email" id="email" value="shadcn@example.com" />
-        </div>
-        <div class="grid gap-2">
-          <Label for="username">Username</Label>
-          <Input id="username" value="@shadcn" />
-        </div>
-        <Button type="submit">Save changes</Button>
-      </form>
-      <Drawer.Footer class="pt-2">
-        <Drawer.Close asChild let:builder>
-          <Button variant="outline" builders={[builder]}>Cancel</Button>
-        </Drawer.Close>
-      </Drawer.Footer>
+			{#if title || subtitle }
+				<Drawer.Header>
+					{#if title}<Drawer.Title>{ title }</Drawer.Title>{/if}
+					{#if subtitle}<Drawer.Description>{ subtitle }</Drawer.Description>{/if}
+				</Drawer.Header>
+			{/if}
+			{@render children()}
+			{#if footer}
+				<Drawer.Footer>
+					{@render footer()}
+				</Drawer.Footer>
+			{/if}
     </Drawer.Content>
   </Drawer.Root>
 {/if}
