@@ -36,9 +36,7 @@
 
 <div class="make-container">
 	<AppTabs {tabs}>
-		{#snippet header()}
-			<SiteLogo/>
-		{/snippet}
+		<SiteLogo/>
 		{@render children()}
 	</AppTabs>
 </div>

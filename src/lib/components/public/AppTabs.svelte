@@ -18,11 +18,19 @@
 	div.apptabshell {
 		container-type: inline-size;
 		contain: paint;
-		padding-bottom: 4rem;
+		display: flex;
+		flex-direction: column-reverse;
+		height: 100vh;
+		padding-block-end: 0.5rem;
+	}
+
+	div.apptabtabs {
+		width: 100%;
+		z-index: 1000;
 	}
 
 	div.apptabcontent {
-		height: calc(100vh - 3em);
+		padding-block-end: 1rem;
 		overflow-y: auto;
 	}
 
@@ -32,8 +40,6 @@
 		justify-content: space-between;
 		border-top: 1px solid hsl(var(--border));
 		width: 100%;
-		position: absolute;
-		bottom: 0;
 
 		& a {
 			display: flex;
@@ -65,9 +71,9 @@
 
 	@container (min-width: 45rem) {
 		div.apptabshell {
-			padding-bottom: 0;
+			padding-block-end: 0;
 			display: grid;
-			grid-template-columns: 15rem auto;
+			grid-template-columns: 3.5rem auto;
 			gap: 1rem;
 
 			div.apptabheader {
@@ -95,25 +101,23 @@
 			a, button {
 				flex-direction: row;
 				align-content: center;
+				gap: 1rem;
 			}
+		}
+	}
 
-			.icon {
-				margin-inline-end: 1em;
-			}
+	@container (min-width: 60rem) {
+		div.apptabshell {
+			grid-template-columns: 15rem auto;
+		}
 
-			.label {
-				display: block;
-			}
+		nav.apptabs .label {
+			display: block;
 		}
 	}
 </style>
 
 <div class="apptabshell">
-	{#if header}
-		<div class="apptabheader">
-			{@render header()}
-		</div>
-	{/if}
 	<div class="apptabtabs">
 		<nav class="apptabs">
 			{#each tabs as {label, icon, href}}

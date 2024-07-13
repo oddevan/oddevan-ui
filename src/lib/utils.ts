@@ -2,8 +2,6 @@ import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { cubicOut } from "svelte/easing";
 import type { TransitionConfig } from "svelte/transition";
-import { readable } from "svelte/store";
-import { browser } from "$app/environment";
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
@@ -62,44 +60,3 @@ export const flyAndScale = (
 		easing: cubicOut
 	};
 };
-
-// Copied from https://github.com/ankurrsinghal/svelte-legos/blob/master/src/lib/utilities/mediaQuery/index.ts
-// MIT Licensed
-// Copied because the library is not fully Svelte 5 compatible.
-export function mediaQuery(query: string) {
-	const defaultWindow = browser ? window : undefined;
-
-	return readable(false, (set) => {
-		const window = defaultWindow;
-		const isSupported = window && "matchMedia" in window && typeof window.matchMedia === "function";
-
-		let mediaQuery: MediaQueryList | undefined;
-
-		function cleanup() {
-			if (!mediaQuery) return;
-			if ("removeEventListener" in mediaQuery)
-				// eslint-disable-next-line @typescript-eslint/no-use-before-define
-				mediaQuery.removeEventListener("change", update);
-			// @ts-expect-error deprecated API
-			// eslint-disable-next-line @typescript-eslint/no-use-before-define
-			else mediaQuery.removeListener(update);
-		}
-
-		function update() {
-			if (!isSupported) return;
-
-			cleanup();
-
-			mediaQuery = window!.matchMedia(query);
-			set(mediaQuery.matches);
-
-			if ("addEventListener" in mediaQuery) mediaQuery.addEventListener("change", update);
-			// @ts-expect-error deprecated API
-			else mediaQuery.addListener(update);
-		}
-
-		update();
-
-		return cleanup;
-	});
-}
