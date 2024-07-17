@@ -1,17 +1,19 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
-	import type { AppTabActionItem, AppTabLinkItem } from "../types.js";
+	import type { AppTabActionItem, AppTabLinkItem, Menu } from "../types.js";
+	import DropdownMenu from "./DropdownMenu.svelte";
+	import { Button as BitsButton } from "bits-ui";
 
 	interface AppTabsProps {
 		tabs: AppTabLinkItem[]
-		action?: AppTabActionItem
-		header?: Snippet
+		action?: AppTabActionItem,
+		menu?: Menu,
 		children: Snippet
 	}
 
-	let { tabs, action, header, children }: AppTabsProps = $props();
+	let { tabs, action, menu, children }: AppTabsProps = $props();
 
-	let buttonStyle = `--action-button-position: ${(tabs.length / 2) + 1}`;
+	let buttonStyle = `--action-button-position: ${Math.trunc((tabs.length + (menu ? 1 : 0)) / 2) + 1}`;
 </script>
 
 <style>
@@ -41,7 +43,7 @@
 		border-top: 1px solid hsl(var(--border));
 		width: 100%;
 
-		& a {
+		& a, & .apptabmenu :global(.apptabmenutrigger) {
 			display: flex;
 			padding: 1em;
 	
@@ -50,7 +52,7 @@
 			}
 		}
 
-		& button {
+		& button.action {
 			display: flex;
 			grid-column: var(--action-button-position);
 			margin: .5em;
@@ -76,10 +78,6 @@
 			grid-template-columns: 3.5rem auto;
 			gap: 1rem;
 
-			div.apptabheader {
-				grid-column: span 2;
-			}
-
 			div.apptabtabs {
 				border-inline-end: 1px solid hsl(var(--border));
 			}
@@ -93,12 +91,12 @@
 				position: sticky;
 				top: 0;
 
-				button {
+				button.action {
 					grid-column: 1;
 				}
 			}
 
-			a, button {
+			a, button, .apptabmenu :global(.apptabmenutrigger) {
 				flex-direction: row;
 				align-content: center;
 				gap: 1rem;
@@ -111,8 +109,14 @@
 			grid-template-columns: 15rem auto;
 		}
 
-		nav.apptabs .label {
-			display: block;
+		nav.apptabs {
+			& :global(.apptabmenutrigger) {
+				width: 100%;
+			}
+
+			& .label {
+				display: block;
+			}
 		}
 	}
 </style>
@@ -131,7 +135,7 @@
 				</a>
 			{/each}
 			{#if action}
-				<button onclick={action.action} style={buttonStyle}>
+				<button class="action" onclick={action.action} style={buttonStyle}>
 					<span class="icon">
 						<svelte:component this={action.icon} size="1.5em" />
 					</span>
@@ -139,6 +143,22 @@
 						{action.label}
 					</span>
 				</button>
+			{/if}
+			{#if menu}
+				<span class="apptabmenu">
+					<DropdownMenu {menu}>
+						{#snippet trigger(builder)}
+							<BitsButton.Root builders={[builder]} class="apptabmenutrigger">
+								<span class="icon">
+									<svelte:component this={menu.icon} size="1.5em" />
+								</span>
+								<span class="label">
+									{menu.label}
+								</span>
+							</BitsButton.Root>
+						{/snippet}
+					</DropdownMenu>
+				</span>
 			{/if}
 		</nav>
 	</div>

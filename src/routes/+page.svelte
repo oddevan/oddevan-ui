@@ -20,7 +20,6 @@
 		{ href: '#', icon: Icons.Status, label: 'Status' },
 		{ href: '#', icon: Icons.Reader, label: 'Reader' },
 		{ href: '#', icon: Icons.Upload, label: 'Upload' },
-		{ href: '#', icon: Icons.Alert, label: 'Alert' },
 	];
 
 	const demoMenu: Menu = {
@@ -82,7 +81,7 @@
 <h2>AppTabs</h2>
 
 <div class="max-w-sm border make-container">
-	<AppTabs action={tabAction} tabs={tabLinks}>
+	<AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
 		<h4>Headline</h4>
 
 		<p>This is normal text in the app.</p>
@@ -90,7 +89,7 @@
 </div>
 
 <div class="max-w-screen-md border make-container">
-	<AppTabs action={tabAction} tabs={tabLinks}>
+	<AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
 		<h4>Headline</h4>
 
 		<p>This is normal text in the app.</p>
@@ -98,7 +97,7 @@
 </div>
 
 <div class="max-w-screen-lg border make-container">
-	<AppTabs action={tabAction} tabs={tabLinks}>
+	<AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
 		<h4>Headline</h4>
 		
 		<p>This is normal text in the app.</p>
