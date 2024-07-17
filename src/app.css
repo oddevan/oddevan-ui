@@ -18,7 +18,7 @@
 }
  
 @layer base {
-  :root {
+  :root, .recolor {
     --canvas-hsl: var(--canvas-light-hsl);
     --action-hsl: var(--action-light-hsl);
     --border-hsl: var(--border-light-hsl);
@@ -55,7 +55,7 @@
     --radius: 0.5rem;
   }
  
-  .dark {
+  .dark, .dark .recolor {
     --canvas-hsl: var(--canvas-dark-hsl);
     --action-hsl: var(--action-dark-hsl);
     --border-hsl: var(--border-dark-hsl);

@@ -18,6 +18,7 @@ export { default as Link } from './Link.svelte';
 export { default as Markdown } from './Markdown.svelte';
 export { default as Menu } from './Menu.svelte';
 export { default as Microblog } from './Microblog.svelte';
+export { default as Notifications } from './Notifications.svelte';
 export { default as Picture } from './Picture.svelte';
 export { default as Plus } from './Plus.svelte';
 export { default as Reader } from './Reader.svelte';
