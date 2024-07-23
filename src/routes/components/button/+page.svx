@@ -1,0 +1,14 @@
+---
+	layout: demo
+	name: Button
+	oneline: You know.
+	hasChildren: true
+---
+
+<script lang="ts">
+	import Button from "$lib/components/public/Button.svelte";
+</script>
+
+It's lickable. Clickable. And oh, so beautiful.
+
+A purposefully limited set of variants. Also doesn't accept an `href` parameter because buttons aren't links. Yet.

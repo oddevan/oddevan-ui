@@ -1,6 +1,9 @@
 {
 	"name": "oddevan-ui",
 	"version": "0.0.1",
+	"author": "Evan Hildreth <me@eph.me>",
+	"description": "A ham-fisted, opinionated wrapper around shadcn-svelte components. Safety not guaranteed.",
+	"keywords": [],
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build && npm run package",
