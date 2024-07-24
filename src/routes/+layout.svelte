@@ -4,7 +4,7 @@
 	import type { AppTabLinkItem } from "$lib/components/types.js";
 	import { Alert, Home, Smolblog } from "$lib/components/public/Icons/index.js";
 
-	import "../app.css";
+	import "$lib/oddevan.css";
 	import SiteLogo from "./SiteLogo.svelte";
 
 	let { children } = $props();

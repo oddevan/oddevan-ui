@@ -5,7 +5,7 @@ import { mdsvex } from "mdsvex";
 /** @type {import('mdsvex').MdsvexOptions} */
 const mdsvexOptions = {
 	layout: {
-		demo: 'src/routes/components/ComponentDemo.svelte',
+		demo: 'src/routes/components/ComponentDemoPage.svelte',
 	}
 };
 
