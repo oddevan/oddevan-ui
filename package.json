@@ -26,7 +26,9 @@
 		"!dist/**/*.test.*",
 		"!dist/**/*.spec.*"
 	],
-	"sideEffects": ["**/*.css"],
+	"sideEffects": [
+		"**/*.css"
+	],
 	"peerDependencies": {
 		"svelte": "^5.0.0-next.1",
 		"tailwindcss": "^3.4.4"
