@@ -5,6 +5,7 @@
 	import { Alert, Home, Smolblog } from "$lib/components/public/Icons/index.js";
 
 	import "$lib/oddevan.css";
+	import "./prism-a11y-dark.css";
 	import SiteLogo from "./SiteLogo.svelte";
 
 	let { children } = $props();

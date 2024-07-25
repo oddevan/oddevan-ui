@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
-	import type { AppTabLinkItem, Menu } from "$lib/components/types.js";
+	import CopyBlock from "$lib/components/public/CopyBlock.svelte";
+	import type { AppTabLinkItem, AppTabActionItem, Menu } from "$lib/components/types.js";
   import * as Icons from "$lib/components/public/Icons";
   
   const tabs: AppTabLinkItem[] = [
@@ -52,6 +53,8 @@
 
 <div class="make-container sbdemo recolor">
   <AppTabs {tabs} action={tabAction} menu={tabMenu}>
-    This is the main stop.
+    <CopyBlock>
+      We have copied yet again!
+    </CopyBlock>
   </AppTabs>
 </div>

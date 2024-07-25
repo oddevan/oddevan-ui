@@ -16,4 +16,6 @@
 	<p>{oneline}</p>
 {/if}
 
-{@render children()}
+<div class="prose">
+	{@render children()}
+</div>

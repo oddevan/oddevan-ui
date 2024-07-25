@@ -12,7 +12,9 @@ oneline: You know what it is.
 </script>
 
 <ComponentDemo>
-<Button primary action={demoAction}>Button</Button>
+	{#snippet demo()}
+		<Button primary action={demoAction}>Button</Button>
+	{/snippet}
 
 ```svelte
 <Button primary action={demoAction}>Button</Button>
