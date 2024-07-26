@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { Component, Snippet } from "svelte";
 
-	interface ComponentDemoProps {
+	interface ComponentDemoPageProps {
 		name: string,
 		oneline?: string,
 		children: Snippet,
 	}
 
-	let { name, oneline, children }: ComponentDemoProps = $props();
+	let { name, oneline, children }: ComponentDemoPageProps = $props();
 </script>
 
 <h1>{name}</h1>

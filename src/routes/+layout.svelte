@@ -2,7 +2,7 @@
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import { ModeWatcher } from "mode-watcher";
 	import type { AppTabLinkItem } from "$lib/components/types.js";
-	import { Alert, Home, Smolblog } from "$lib/components/public/Icons/index.js";
+	import { Alert, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
 
 	import "$lib/oddevan.css";
 	import "./prism-a11y-dark.css";
@@ -12,6 +12,7 @@
 
 	const tabs: AppTabLinkItem[] = [
 		{ href: '/', icon: Home, label: 'Home' },
+		{ href: '/components', icon: Code, label: 'Components' },
 		{ href: '/icons', icon: Alert, label: 'Icons' },
 		{ href: '/scratch', icon: Smolblog, label: 'Dashboard Demo' }
 	];

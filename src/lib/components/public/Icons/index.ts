@@ -4,7 +4,7 @@ export { default as ArrowOut } from './ArrowOut.svelte';
 export { default as Article } from './Article.svelte';
 export { default as Check } from './Check.svelte';
 export { default as ClipboardCopy } from './ClipboardCopy.svelte';
-export { default as ClipboardCopyCheck } from './ClipboardCopyCheck.svelte';
+export { default as Code } from './Code.svelte';
 export { default as Content } from './Content.svelte';
 export { default as Create } from './Create.svelte';
 export { default as Cross } from './Cross.svelte';

@@ -5,7 +5,7 @@ oneline: You know what it is.
 ---
 
 <script lang="ts">
-	import ComponentDemo from '../component-demo/ComponentDemo.svelte';
+	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
 	import Button from '$lib/components/public/Button.svelte';
 
 	const demoAction = () => console.log('Button!');

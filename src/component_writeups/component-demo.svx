@@ -1,0 +1,57 @@
+---
+layout: demo
+name: Component Demo
+oneline: As seen right here
+---
+
+<script lang="ts">
+	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
+	import Button from '$lib/components/public/Button.svelte';
+
+	const demoAction = () => console.log('Button!');
+</script>
+
+<ComponentDemo>
+	{#snippet demo()}
+	<ComponentDemo>
+		{#snippet demo()}
+			<Button primary action={demoAction}>Button</Button>
+		{/snippet}
+
+```svelte
+<Button primary action={demoAction}>Button</Button>
+```
+
+	</ComponentDemo>
+	{/snippet}
+
+```svelte
+<ComponentDemo>
+	{#snippet demo()}
+		<Button primary action={demoAction}>Button</Button>
+	{/snippet}
+
+\`\`\`svelte
+<Button primary action={demoAction}>Button</Button>
+\`\`\`
+
+</ComponentDemo>
+```
+
+</ComponentDemo>
+
+Look, I worked a little harder than I care to admit on this site. I wanted to have fully-interactive demos, but that
+felt like _way_ too much re-work, especially since very few (if any) other Svelte libraries do that. Wake me up when
+there's a way to reflect a component's props interface.
+
+But this does use the [Copy Block](/components/copy-block) combined with the syntax highlighting in
+[MDSvex](https://mdsvex.pngwn.io) to make a nice little display. Yes, you do have to put the code in there twice;
+someday I'll figure out a way around that. Someday.
+
+But it is not this day.
+
+## Usage
+
+Use the `demo` snippet for the displayable component. Put your code sample in the `children` snippet.
+
+
