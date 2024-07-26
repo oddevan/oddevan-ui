@@ -1,29 +1,37 @@
 ---
 layout: demo
-name: Button
-oneline: You know what it is.
+name: Sheet
+oneline: Drawers or modals
 ---
 
 <script lang="ts">
 	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
 	import Button from '$lib/components/public/Button.svelte';
+	import Sheet from "$lib/components/public/Sheet.svelte";
 
 	const demoAction = () => console.log('Button!');
+
+	let openSheet = false;
 </script>
 
 <ComponentDemo>
 	{#snippet demo()}
-		<Button primary action={demoAction}>Button</Button>
+		<Button primary action={ () => openSheet = !openSheet }>Manage Channels</Button>
+
+		<Sheet bind:open={openSheet} title="Manage Channels">
+			Detailed content or actions! Click or tap outside to dismiss.
+		</Sheet>
 	{/snippet}
 
 ```svelte
-<Button primary action={demoAction}>Button</Button>
+<Button primary action={ () => openSheet = !openSheet }>Manage Channels</Button>
+
+<Sheet bind:open={openSheet} title="Manage Channels">
+	Detailed content or actions! Click or tap outside to dismiss.
+</Sheet>
 ```
 
 </ComponentDemo>
 
-It's lickable. Clickable. And oh, so beautiful.
-
-A purposefully limited set of variants. Also doesn't accept an `href` parameter because buttons aren't links. Yet.
-
-
+This is more analogous to the SwiftUI Sheet than the Shadcn Sheet. The idea is to show a centered panel on tablets and
+desktops but have a bottom-aligned drawer for mobile views. Show and hide using a bound `boolean` value.

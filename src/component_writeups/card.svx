@@ -1,29 +1,73 @@
 ---
 layout: demo
-name: Button
-oneline: You know what it is.
+name: Card
+oneline: User interface segment
 ---
 
 <script lang="ts">
 	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
 	import Button from '$lib/components/public/Button.svelte';
+	import ButtonBar from "$lib/components/public/ButtonBar.svelte"
+	import ListItem from "$lib/components/public/ListItem.svelte"
+	import Card from "$lib/components/public/Card.svelte";
+	import * as Icons from "$lib/components/public/Icons";
+	import type { Menu } from "$lib/components/types.js";
+
+	const demoMenu: Menu = {
+		icon: Icons.Menu,
+		label: 'DemoMenu',
+		items: [
+			{ href: '#', icon: Icons.Status, label: 'Status' },
+			{ href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
+			{ href: '#', icon: Icons.Upload, label: 'Upload' },
+			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
+		]
+	};
 
 	const demoAction = () => console.log('Button!');
 </script>
 
 <ComponentDemo>
 	{#snippet demo()}
-		<Button primary action={demoAction}>Button</Button>
+		<Card title="Channels">
+			<ListItem title="plotholefragments" subtitle="plotholefragments.tumblr.com" actions={demoMenu}>
+				{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
+			</ListItem>
+			<ListItem title="oddevan" subtitle="oddevan.com" actions={demoMenu}>
+				{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+			</ListItem>
+			{#snippet footer()}
+				<ButtonBar>
+					<Button primary>
+						<Icons.Plus size="1.5em" />
+						Add Channel
+					</Button>
+				</ButtonBar>
+			{/snippet}
+		</Card>
 	{/snippet}
 
 ```svelte
-<Button primary action={demoAction}>Button</Button>
+<Card title="Channels">
+	<ListItem title="oddevan" subtitle="oddevan.tumblr.com" actions={demoMenu}>
+		{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
+	</ListItem>
+	<ListItem title="oddevan" subtitle="oddevan.com" actions={demoMenu}>
+		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+	</ListItem>
+	{#snippet footer()}
+		<ButtonBar>
+			<Button primary>
+				<Icons.Plus size="1.5em" />
+				Add Channel
+			</Button>
+		</ButtonBar>
+	{/snippet}
+</Card>
 ```
 
 </ComponentDemo>
 
-It's lickable. Clickable. And oh, so beautiful.
-
-A purposefully limited set of variants. Also doesn't accept an `href` parameter because buttons aren't links. Yet.
+A block. A platform. Something to hold information or elements. You know them and you love them. Hopefully.
 
 

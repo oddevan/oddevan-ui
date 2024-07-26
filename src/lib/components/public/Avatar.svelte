@@ -1,5 +1,6 @@
 <script lang="ts">
   import * as Avatar from "$lib/components/ui/avatar";
+	import type { Snippet } from "svelte";
 
 	interface AvatarProps {
 		src?: string,

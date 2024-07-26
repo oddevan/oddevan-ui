@@ -1,29 +1,23 @@
 ---
 layout: demo
-name: Button
-oneline: You know what it is.
+name: Avatar
+oneline: Standard identity presentation
 ---
 
 <script lang="ts">
 	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
-	import Button from '$lib/components/public/Button.svelte';
-
-	const demoAction = () => console.log('Button!');
+	import Avatar from '$lib/components/public/Avatar.svelte';
 </script>
 
 <ComponentDemo>
 	{#snippet demo()}
-		<Button primary action={demoAction}>Button</Button>
+		<Avatar src="https://gravatar.com/avatar/bd4416f9d52a4982142273045a3c394a5583b511d9f007a73a9c4dc4b046e93b?s=100"/>
 	{/snippet}
 
 ```svelte
-<Button primary action={demoAction}>Button</Button>
+<Avatar src="https://gravatar.com/avatar/bd4416f9d52a4982142273045a3c394a5583b511d9f007a73a9c4dc4b046e93b?s=100"/>
 ```
 
 </ComponentDemo>
 
-It's lickable. Clickable. And oh, so beautiful.
-
-A purposefully limited set of variants. Also doesn't accept an `href` parameter because buttons aren't links. Yet.
-
-
+Honestly, I'm not sure why I have this yet. I think I'll need it eventually, but...

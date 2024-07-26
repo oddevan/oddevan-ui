@@ -1,29 +1,36 @@
 ---
 layout: demo
-name: Button
-oneline: You know what it is.
+name: Button Bar
+oneline: A row of buttons
 ---
 
 <script lang="ts">
 	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
 	import Button from '$lib/components/public/Button.svelte';
-
-	const demoAction = () => console.log('Button!');
+	import ButtonBar from '$lib/components/public/ButtonBar.svelte';
 </script>
 
 <ComponentDemo>
 	{#snippet demo()}
-		<Button primary action={demoAction}>Button</Button>
+		<ButtonBar>
+			<Button destructive>Discard</Button>
+			<Button>Save</Button>
+			{#snippet leading()}
+				<Button>Cancel</Button>
+			{/snippet}
+		</ButtonBar>
 	{/snippet}
 
 ```svelte
-<Button primary action={demoAction}>Button</Button>
+<ButtonBar>
+	<Button destructive>Discard</Button>
+	<Button>Save</Button>
+	{#snippet leading()}
+		<Button>Cancel</Button>
+	{/snippet}
+</ButtonBar>
 ```
 
 </ComponentDemo>
 
-It's lickable. Clickable. And oh, so beautiful.
-
-A purposefully limited set of variants. Also doesn't accept an `href` parameter because buttons aren't links. Yet.
-
-
+This was going to be at the base of forms. Not sure if that will actually happen, yet.

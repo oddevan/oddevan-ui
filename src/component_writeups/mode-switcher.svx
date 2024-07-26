@@ -1,29 +1,7 @@
 ---
 layout: demo
-name: Button
-oneline: You know what it is.
+name: Mode Switcher
+oneline: Light/Dark/System switch
 ---
 
-<script lang="ts">
-	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
-	import Button from '$lib/components/public/Button.svelte';
-
-	const demoAction = () => console.log('Button!');
-</script>
-
-<ComponentDemo>
-	{#snippet demo()}
-		<Button primary action={demoAction}>Button</Button>
-	{/snippet}
-
-```svelte
-<Button primary action={demoAction}>Button</Button>
-```
-
-</ComponentDemo>
-
-It's lickable. Clickable. And oh, so beautiful.
-
-A purposefully limited set of variants. Also doesn't accept an `href` parameter because buttons aren't links. Yet.
-
-
+In progres...

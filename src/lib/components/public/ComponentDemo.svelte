@@ -35,7 +35,7 @@
 </style>
 
 <div class="demo not-prose">
-	<div class="show">
+	<div class="show make-container">
 		{@render demo()}
 	</div>
 	<CopyBlock>
