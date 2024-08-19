@@ -4,6 +4,7 @@
 	import type { AppTabLinkItem } from "$lib/components/types.js";
 	import { Alert, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
 
+	// import "./docs.css";
 	import "$lib/oddevan.css";
 	import "./prism-a11y-dark.css";
 	import SiteLogo from "./SiteLogo.svelte";

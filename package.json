@@ -19,7 +19,8 @@
 		".": {
 			"types": "./dist/index.d.ts",
 			"svelte": "./dist/index.js"
-		}
+		},
+		"./oddevan.css": "./dist/oddevan.css"
 	},
 	"files": [
 		"dist",
