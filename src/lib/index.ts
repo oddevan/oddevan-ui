@@ -11,4 +11,6 @@ export { default as ListItem } from '$lib/components/public/ListItem.svelte';
 export { default as ModeSwitcher } from '$lib/components/public/ModeSwitcher.svelte';
 export { default as Sheet } from '$lib/components/public/Sheet.svelte';
 
+export { default as Input } from '$lib/components/public/Input.svelte';
+
 export type * from '$lib/components/types.d.ts';
