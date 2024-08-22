@@ -29,7 +29,7 @@
 					{#if menu.icon}
 						{@const alt = hideLabel ? menu.label : undefined}
 						{@const size = hideLabel ? '1.5em' : undefined}
-						<svelte:component this={menu.icon} {alt} {size} />
+						<menu.icon {alt} {size} />
 					{/if}
 					{#if !hideLabel || !menu.icon}
 						{menu.label}
@@ -45,7 +45,7 @@
 					{@const itemProps = item.action ? { onclick: item.action } : { href: item.href }}
 					<DropdownMenu.Item {...itemProps}>
 						{#if item.icon}
-							<svelte:component this={item.icon} />
+							<item.icon />
 						{/if}
 						<span>{item.label}</span>
 						{#if item.shortcut}

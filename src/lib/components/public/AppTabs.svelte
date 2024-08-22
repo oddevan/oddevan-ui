@@ -127,7 +127,7 @@
 			{#each tabs as {label, icon, href}}
 				<a {href}>
 					<span class="icon">
-						<svelte:component this={icon} size="1.5em" />
+						<icon size="1.5em" />
 					</span>
 					<span class="label">
 						{label}
@@ -137,7 +137,7 @@
 			{#if action}
 				<button class="action" onclick={action.action} style={buttonStyle}>
 					<span class="icon">
-						<svelte:component this={action.icon} size="1.5em" />
+						<action.icon size="1.5em" />
 					</span>
 					<span class="label">
 						{action.label}
@@ -150,7 +150,7 @@
 						{#snippet trigger(builder)}
 							<BitsButton.Root builders={[builder]} class="apptabmenutrigger">
 								<span class="icon">
-									<svelte:component this={menu.icon} size="1.5em" />
+									<menu.icon size="1.5em" />
 								</span>
 								<span class="label">
 									{menu.label}

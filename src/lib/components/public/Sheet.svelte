@@ -16,7 +16,7 @@
   const query = new MediaQuery("(min-width: 768px)");
 </script>
  
-{#if query.matches}
+{#if typeof window !== 'undefined' && query.matches}
   <Dialog.Root bind:open>
     <Dialog.Content class="max-w-md">
 			{#if title || subtitle }

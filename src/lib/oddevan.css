@@ -6,6 +6,9 @@
   --canvas-light-hsl: 0 0% 100%;
   --canvas-dark-hsl: 210 100% 20%;
 
+  --on-canvas-light-hsl: 20 14.3% 4.1%;
+  --on-canvas-dark-hsl: 60 9.1% 97.8%;
+
   --action-light-hsl: 210 50% 40%;
   --action-dark-hsl: 60 100% 40%;
 
@@ -15,11 +18,12 @@
 
 :root, .recolor {
   --canvas-hsl: var(--canvas-light-hsl);
+  --on-canvas-hsl: var(--on-canvas-light-hsl);
   --action-hsl: var(--action-light-hsl);
   --border-hsl: var(--border-light-hsl);
 
   --background: var(--canvas-light-hsl, 0 0% 100%);
-  --foreground: 20 14.3% 4.1%;
+  --foreground: var(--on-canvas-light-hsl, 20 14.3% 4.1%);
 
   --muted: 60 4.8% 95.9%;
   --muted-foreground: 25 5.3% 44.7%;
@@ -52,11 +56,12 @@
 
 .dark, .dark .recolor {
   --canvas-hsl: var(--canvas-dark-hsl);
+  --on-canvas-hsl: var(--on-canvas-dark-hsl);
   --action-hsl: var(--action-dark-hsl);
   --border-hsl: var(--border-dark-hsl);
 
   --background: var(--canvas-dark-hsl, 20 14.3% 4.1%);
-  --foreground: 60 9.1% 97.8%;
+  --foreground: var(--on-canvas-dark-hsl, 60 9.1% 97.8%);
 
   --muted: 12 6.5% 15.1%;
   --muted-foreground: 24 5.4% 63.9%;

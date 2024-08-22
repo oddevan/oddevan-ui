@@ -10,7 +10,7 @@
 
 	let {src, alt, children}: AvatarProps = $props();
 
-	let imgAtts = {};
+	let imgAtts: { alt?: string, 'aria-hidden'?: string } = {};
 	if (src && !alt) {
 		imgAtts.alt = alt;
 	} else {
