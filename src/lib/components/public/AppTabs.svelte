@@ -8,10 +8,11 @@
 		tabs: AppTabLinkItem[]
 		action?: AppTabActionItem,
 		menu?: Menu,
+		global?: boolean,
 		children: Snippet
 	}
 
-	let { tabs, action, menu, children }: AppTabsProps = $props();
+	let { tabs, action, menu, global = false, children }: AppTabsProps = $props();
 
 	let buttonStyle = `--action-button-position: ${Math.trunc((tabs.length + (menu ? 1 : 0)) / 2) + 1}`;
 </script>
@@ -22,8 +23,11 @@
 		contain: paint;
 		display: flex;
 		flex-direction: column-reverse;
-		height: 100vh;
-		padding-block-end: 0.5rem;
+
+		&.global {
+			height: 100vh;
+			padding-block-end: 0.5rem;
+		}
 	}
 
 	div.apptabtabs {
@@ -73,10 +77,13 @@
 
 	@container (min-width: 45rem) {
 		div.apptabshell {
-			padding-block-end: 0;
 			display: grid;
 			grid-template-columns: 3.5rem auto;
 			gap: 1rem;
+
+			&.global {
+				padding-block-end: 0;
+			}
 
 			div.apptabtabs {
 				border-inline-end: 1px solid hsl(var(--border));
@@ -121,13 +128,14 @@
 	}
 </style>
 
-<div class="apptabshell">
+<div class="apptabshell" class:global={global}>
 	<div class="apptabtabs">
 		<nav class="apptabs">
 			{#each tabs as {label, icon, href}}
+				{@const IconComponent = icon}
 				<a {href}>
 					<span class="icon">
-						<icon size="1.5em" />
+						<IconComponent size="1.5em" />
 					</span>
 					<span class="label">
 						{label}

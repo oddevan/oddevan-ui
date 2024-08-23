@@ -2,4 +2,4 @@
 	let { data }: {data: PageData} = $props();
 </script>
 
-<svelte:component this={data.pageComponent}/>
+<data.pageComponent/>

@@ -44,35 +44,6 @@ oneline: Responsive primary navigation
 	{/snippet}
 
 ```svelte
-<script lang="ts">
-	import * as Icons from "$lib/components/public/Icons";
-	import AppTabs from "$lib/components/public/AppTabs.svelte";
-	import type { AppTabActionItem, AppTabLinkItem, Menu } from "$lib/components/types.js";
-
-		const tabAction: AppTabActionItem = {
-		action: () => { console.log('AppTabActionItem'); },
-		icon: Icons.Plus,
-		label: 'New thing'
-	};
-
-	const tabLinks: AppTabLinkItem[] = [
-		{ href: '#', icon: Icons.Status, label: 'Status' },
-		{ href: '#', icon: Icons.Reader, label: 'Reader' },
-		{ href: '#', icon: Icons.Upload, label: 'Upload' },
-	];
-
-	const demoMenu: Menu = {
-		icon: Icons.Menu,
-		label: 'DemoMenu',
-		items: [
-			{ href: '#', icon: Icons.Status, label: 'Status' },
-			{ href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
-			{ href: '#', icon: Icons.Upload, label: 'Upload' },
-			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
-		]
-	};
-</script>
-
 <AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
 	<h4>Headline</h4>
 
@@ -82,10 +53,39 @@ oneline: Responsive primary navigation
 
 </ComponentDemo>
 
-Primary navigation for the application that responds to the container width:
+Primary navigation for the application that responds to the container width, going from a bottom tab bar to leading-side
+navigation.
 
-- On small screens, the icons are fixed to the bottom of the screen with the `action` in the middle.
-- At `45rem`, the icons move to the leading side with the `action` at the end and `menu` at the bottom.
-- At `60rem`, visible labels are added.
+On small screens, the icons are fixed to the bottom of the screen with the `action` in the middle:
+
+<div class="max-w-sm border make-container">
+	<AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
+		<h4>Headline</h4>
+
+		<p>This is normal text in the app.</p>
+	</AppTabs>
+</div>
+
+At `45rem`, the icons move to the leading side with the `action` at the end and `menu` at the bottom.
+
+<div class="max-w-screen-md border make-container">
+	<AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
+		<h4>Headline</h4>
+
+		<p>This is normal text in the app.</p>
+	</AppTabs>
+</div>
+
+At `60rem`, visible labels are added.
+
+<div class="max-w-screen-lg border make-container">
+	<AppTabs action={tabAction} tabs={tabLinks} menu={demoMenu}>
+		<h4>Headline</h4>
+		
+		<p>This is normal text in the app.</p>
+	</AppTabs>
+</div>
 
 The component uses container queries, so it can be used for side-panel navigation as well and will respond accordingly.
+If this is the global navigation, adding the `global` prop will make the component full-height as well as adding some
+padding at the end to clear the iPhone home indicator. (See this site to see it in action. 😎)

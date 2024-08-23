@@ -4,4 +4,52 @@ name: List Item
 oneline: Items in a list view
 ---
 
-In progress
+<script lang="ts">
+	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
+	import * as Icons from "$lib/components/public/Icons";
+	import type { Menu } from "$lib/components/types.js";
+	import ListItem from '$lib/components/public/ListItem.svelte';
+
+	const demoMenu: Menu = {
+		icon: Icons.Menu,
+		label: 'DemoMenu',
+		items: [
+			{ href: '#', icon: Icons.Status, label: 'Status' },
+			{ href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
+			{ href: '#', icon: Icons.Upload, label: 'Upload' },
+			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
+		]
+	};
+</script>
+
+<ComponentDemo>
+	{#snippet demo()}
+		<div class="max-w-sm border">
+			<ListItem title="A Thing" actions={demoMenu}>
+				{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
+			</ListItem>
+			<ListItem title="Another Thing" subtitle="Different from the first thing">
+				{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+			</ListItem>
+			<ListItem title="A secret third thing" subtitle="Yet another thing" actions={demoMenu}>
+				{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+			</ListItem>
+		</div>
+	{/snippet}
+
+```svelte
+<div class="max-w-sm border">
+	<ListItem title="A Thing" actions={demoMenu}>
+		{#snippet icon()}<Icons.Tumblr size="2em" />{/snippet}
+	</ListItem>
+	<ListItem title="Another Thing" subtitle="Different from the first thing">
+		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+	</ListItem>
+	<ListItem title="A secret third thing" subtitle="Yet another thing" actions={demoMenu}>
+		{#snippet icon()}<Icons.Microblog size="2em" />{/snippet}
+	</ListItem>
+</div>
+```
+
+</ComponentDemo>
+

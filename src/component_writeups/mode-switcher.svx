@@ -4,4 +4,18 @@ name: Mode Switcher
 oneline: Light/Dark/System switch
 ---
 
-In progres...
+<script lang="ts">
+	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
+	import ModeSwitcher from '$lib/components/public/ModeSwitcher.svelte';
+</script>
+
+<ComponentDemo>
+	{#snippet demo()}
+		<ModeSwitcher />
+	{/snippet}
+
+```svelte
+<ModeSwitcher />
+```
+
+</ComponentDemo>

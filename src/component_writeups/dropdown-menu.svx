@@ -4,6 +4,32 @@ name: Dropdown Menu
 oneline: Actions and links behind a button
 ---
 
-In progress...
+<script lang="ts">
+	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
+	import * as Icons from "$lib/components/public/Icons";
+	import type { Menu } from "$lib/components/types.js";
+	import DropdownMenu from '$lib/components/public/DropdownMenu.svelte';
 
+	const demoMenu: Menu = {
+		icon: Icons.Menu,
+		label: 'DemoMenu',
+		items: [
+			{ href: '#', icon: Icons.Status, label: 'Status' },
+			{ href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
+			{ href: '#', icon: Icons.Upload, label: 'Upload' },
+			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
+		]
+	};
+</script>
+
+<ComponentDemo>
+	{#snippet demo()}
+		<DropdownMenu menu={demoMenu} />
+	{/snippet}
+
+```svelte
+<DropdownMenu menu={demoMenu} />
+```
+
+</ComponentDemo>
 

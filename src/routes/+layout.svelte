@@ -38,7 +38,7 @@
 <ModeWatcher />
 
 <div class="make-container">
-	<AppTabs {tabs}>
+	<AppTabs {tabs} global>
 		<SiteLogo/>
 		{@render children()}
 	</AppTabs>

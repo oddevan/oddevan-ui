@@ -52,7 +52,7 @@
 </style>
 
 <div class="make-container sbdemo recolor">
-  <AppTabs {tabs} action={tabAction} menu={tabMenu}>
+  <AppTabs {tabs} action={tabAction} menu={tabMenu} global>
     <CopyBlock>
       We have copied yet again!
     </CopyBlock>
