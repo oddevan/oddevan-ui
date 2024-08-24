@@ -10,14 +10,25 @@ oneline: Actions and links behind a button
 	import type { Menu } from "$lib/components/types.js";
 	import DropdownMenu from '$lib/components/public/DropdownMenu.svelte';
 
+	const oddevanGravatar = 'https://gravatar.com/avatar/bd4416f9d52a4982142273045a3c394a5583b511d9f007a73a9c4dc4b046e93b?s=100';
+
+	const accountMenu: Menu = {
+		type: 'menu', icon: oddevanGravatar, label: 'Account', items: [
+		{ type: 'link', href: '#', icon: Icons.Status, label: 'Status' },
+		{ type: 'link', href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
+		{ type: 'link', href: '#', icon: Icons.Upload, label: 'Upload' },
+	]};
+
 	const demoMenu: Menu = {
+		type: 'menu',
 		icon: Icons.Menu,
 		label: 'DemoMenu',
 		items: [
-			{ href: '#', icon: Icons.Status, label: 'Status' },
-			{ href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
-			{ href: '#', icon: Icons.Upload, label: 'Upload' },
-			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
+			{ type: 'link', href: '#', icon: Icons.Status, label: 'Status' },
+			{ type: 'link', href: '#', icon: Icons.Reader, label: 'Reader', shortcut: '⇧⌘P' },
+			{ type: 'link', href: '#', icon: Icons.Upload, label: 'Upload' },
+			accountMenu,
+			{ type: 'action', action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Alert' },
 		]
 	};
 </script>

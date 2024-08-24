@@ -19,36 +19,28 @@ export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
         [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
     }[Keys]
 
-export interface AppTabAvatarItem {
-	href: string
-	label: string
-	src: string
-};
-
-export interface AppTabLinkItem {
-	href: string
-	label: string
-	icon: Component
+export type MenuItemIcon = Component<{ size: string, alt?: string }> | string;
+interface BaseMenuItem {
+	icon?: MenuItemIcon,
+	label: string,
+	enabled?: boolean,
 }
 
-export interface AppTabActionItem {
-	action: () => void
-	label: string
-	icon: Component
+export interface LinkMenuItem extends BaseMenuItem {
+	type: 'link',
+	href: string,
+	shortcut?: string,
 }
 
-export interface MenuItem {
-	icon?: Component
-	label: string
-	shortcut?: string
-	href?: string
-	action?: () => void
+export interface ActionMenuItem extends BaseMenuItem {
+	type: 'action',
+	action: () => void,
+	shortcut?: string,
 }
 
-export type MenuEntry = MenuItem | 'separator' // | Menu
-
-export interface Menu {
-	icon?: Component
-	label: string
-	items: MenuEntry[]
+export interface Menu extends BaseMenuItem {
+	type: 'menu',
+	items: (MenuItem | 'separator')[],
 }
+
+export type MenuItem = LinkMenuItem | ActionMenuItem | Menu;
