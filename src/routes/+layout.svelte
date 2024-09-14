@@ -9,6 +9,13 @@
 	import "./prism-a11y-dark.css";
 	import SiteLogo from "./SiteLogo.svelte";
 
+	import '@shoelace-style/shoelace/dist/themes/light.css';
+	import { setBasePath } from '@shoelace-style/shoelace/dist/utilities/base-path.js';
+
+	$effect(() => {
+		setBasePath('https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.16.0/cdn/');
+	});
+
 	let { children } = $props();
 
 	const tabs: AppTabLinkItem[] = [

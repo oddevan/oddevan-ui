@@ -1,10 +1,10 @@
 <script lang="ts">
-  import * as Avatar from "$lib/components/ui/avatar";
+	import '@shoelace-style/shoelace/dist/components/avatar/avatar.js';
 	import type { Snippet } from "svelte";
 
 	interface AvatarProps {
 		src?: string,
-		alt?: string,
+		alt: string,
 		children?: Snippet,
 	}
 
@@ -17,14 +17,9 @@
 		imgAtts['aria-hidden'] = 'true';
 	}
 </script>
- 
-<Avatar.Root>
-	{#if src}
-		<Avatar.Image {src} {...imgAtts} />
-	{/if}
+
+<sl-avatar image={src} label={alt}>
 	{#if children}
-		<Avatar.Fallback>
-			{@render children()}
-		</Avatar.Fallback>
+	<span slot="icon">{@render children()}</span>
 	{/if}
-</Avatar.Root>
+</sl-avatar>

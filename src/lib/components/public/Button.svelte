@@ -1,13 +1,12 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
 	import type { Snippet } from 'svelte';
+	import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 	interface ButtonProps {
 		primary?: boolean;
 		destructive?: boolean;
 		disabled?: boolean;
 		noborder?: boolean;
-		action?: (e?: Event) => void;
 		children: Snippet;
 	}
 
@@ -16,13 +15,12 @@
 		destructive = false,
 		disabled = false,
 		noborder = false,
-		action = () => {},
 		children,
 		...restProps
 	}: ButtonProps = $props();
 
-	let variant: 'destructive'|'default'|'outline'|'ghost' =
-		destructive ? 'destructive' : primary ? 'default' : noborder ? 'ghost' : 'outline';
+	let variant: 'danger'|'default'|'default'|'text' =
+		destructive ? 'danger' : primary ? 'default' : noborder ? 'text' : 'default';
 </script>
 
 <style>
@@ -32,7 +30,7 @@
 </style>
 
 <span>
-	<Button {variant} {disabled} {...restProps} on:click={action} on:keydown={action}>
+	<sl-button {variant} {disabled} {...restProps}>
 		{@render children()}
-	</Button>
+	</sl-button>
 </span>

@@ -2,7 +2,7 @@
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 	import type { Snippet } from "svelte";
 	import type { Menu, MenuItem } from "../types.js";
-	import Button from "./Button.svelte";
+	import Button from "../ui/button/button.svelte";
 	import MenuIcon from "../protected/MenuIcon.svelte";
 
 	interface DropdownMenuProps {

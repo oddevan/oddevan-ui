@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { ClipboardCopy, Check } from '$lib/components/public/Icons';
-	import Button from '$lib/components/public/Button.svelte';
+	import type { Snippet } from 'svelte';
+	import Button from '../ui/button/button.svelte';
 
 	interface CopyBlockProps {
 		children: Snippet,
@@ -13,7 +14,7 @@
 
 	const engage = async () => {
 		try {
-			await navigator.clipboard.writeText(copyTarget.textContent);
+			await navigator.clipboard.writeText(copyTarget.textContent ?? '');
 			copied = true;
 		} catch (error) {
 			console.error(error.message);
@@ -42,7 +43,7 @@
 </style>
 
 <div class="copyBlock">
-	<Button action={engage} class="copyBlockButton">
+	<Button on:click={engage} class="copyBlockButton">
 		{#if copied}
 			<Check />
 		{:else}
