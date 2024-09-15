@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Snippet } from 'svelte';
+	import type { Component, Snippet } from 'svelte';
 	import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 	interface ButtonProps {
@@ -7,6 +7,7 @@
 		destructive?: boolean;
 		disabled?: boolean;
 		noborder?: boolean;
+		icon?: Component;
 		children: Snippet;
 	}
 
@@ -15,6 +16,7 @@
 		destructive = false,
 		disabled = false,
 		noborder = false,
+		icon: Icon,
 		children,
 		...restProps
 	}: ButtonProps = $props();
@@ -23,14 +25,7 @@
 		destructive ? 'danger' : primary ? 'default' : noborder ? 'text' : 'default';
 </script>
 
-<style>
-	span :global(button[data-button-root]) {
-		gap: .5em;
-	}
-</style>
-
-<span>
-	<sl-button {variant} {disabled} {...restProps}>
-		{@render children()}
-	</sl-button>
-</span>
+<sl-button {variant} {disabled} {...restProps}>
+	{#if Icon}<span slot="prefix"><Icon /></span>{/if}
+	{@render children()}
+</sl-button>

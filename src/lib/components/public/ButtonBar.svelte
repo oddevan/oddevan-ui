@@ -17,15 +17,13 @@
 		justify-content: space-between;
 		padding: .5em;
 		margin: .5em;
-		/* border: 1px solid hsl(var(--border));
-		border-radius: var(--radius); */
 		width: 100%;
 	}
 
 	.leading, .main {
 		display: flex;
 		gap: .5em;
-		flex-direction: row-reverse;
+		flex-direction: row;
 	}
 </style>
 

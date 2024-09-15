@@ -38,8 +38,7 @@ oneline: User interface segment
 			</ListItem>
 			{#snippet footer()}
 				<ButtonBar>
-					<Button primary>
-						<Icons.Plus size="1.5em" />
+					<Button primary icon={Icons.Plus}>
 						Add Channel
 					</Button>
 				</ButtonBar>
@@ -57,8 +56,7 @@ oneline: User interface segment
 	</ListItem>
 	{#snippet footer()}
 		<ButtonBar>
-			<Button primary>
-				<Icons.Plus size="1.5em" />
+			<Button primary icon={Icons.Plus}>
 				Add Channel
 			</Button>
 		</ButtonBar>
