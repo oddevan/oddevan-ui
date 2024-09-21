@@ -8,6 +8,8 @@
 		disabled?: boolean;
 		noborder?: boolean;
 		icon?: Component;
+		action?: () => void|Promise<void>;
+		href?: string;
 		children: Snippet;
 	}
 
@@ -17,15 +19,18 @@
 		disabled = false,
 		noborder = false,
 		icon: Icon,
+		action,
+		href,
 		children,
-		...restProps
 	}: ButtonProps = $props();
 
 	let variant: 'danger'|'default'|'default'|'text' =
 		destructive ? 'danger' : primary ? 'default' : noborder ? 'text' : 'default';
+	
+	let actionProp = href ? { href } : action ? { onclick: action } : { type: 'submit' };
 </script>
 
-<sl-button {variant} {disabled} {...restProps}>
+<sl-button {variant} {disabled} {...actionProp}>
 	{#if Icon}<span slot="prefix"><Icon /></span>{/if}
 	{@render children()}
 </sl-button>

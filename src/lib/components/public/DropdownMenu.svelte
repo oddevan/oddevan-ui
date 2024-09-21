@@ -1,76 +1,57 @@
 <script lang="ts">
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-	import type { Snippet } from "svelte";
-	import type { Menu, MenuItem } from "../types.js";
-	import Button from "../ui/button/button.svelte";
+	import '@shoelace-style/shoelace/dist/components/button/button.js';
+	import '@shoelace-style/shoelace/dist/components/divider/divider.js';
+	import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
+	import '@shoelace-style/shoelace/dist/components/menu/menu.js';
+	import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
+	import type { ActionMenuItem, Menu, MenuItem } from "../types.js";
 	import MenuIcon from "../protected/MenuIcon.svelte";
 
 	interface DropdownMenuProps {
 		hideLabel?: boolean
-		menu: Menu
-		trigger?: Snippet<[any]>
+		menu: Menu<ActionMenuItem>
 	}
 
-	let { hideLabel = false, menu, trigger }: DropdownMenuProps = $props();
+	let { hideLabel = false, menu }: DropdownMenuProps = $props();
 </script>
 
-<style>
-	div :global(div.menuPopup [data-menu-item]) {
-		gap: .5em
-	}
-</style>
-
-{#snippet displayItems(items: (MenuItem | 'separator')[])}
+{#snippet displayItems(items: MenuItem<ActionMenuItem>[])}
+	<sl-menu>
 	{#each items as item}
 	{#if item === 'separator'}
-		<DropdownMenu.Separator />
+		<sl-divider></sl-divider>
 	{:else if item.type === 'menu'}
-		<DropdownMenu.Sub>
-			<DropdownMenu.SubTrigger>
-				{#if item.icon}
-					<MenuIcon item={item.icon} />
-				{/if}
-				<span>{item.label}</span>
-			</DropdownMenu.SubTrigger>
-			<DropdownMenu.SubContent>
-				{@render displayItems(item.items)}
-			</DropdownMenu.SubContent>
-		</DropdownMenu.Sub>
-	{:else}
-		{@const itemProps = item.type == 'action' ? { onclick: item.action } : { href: item.href }}
-		<DropdownMenu.Item {...itemProps}>
+		<sl-menu-item>
 			{#if item.icon}
-				<MenuIcon item={item.icon} />
+				<span slot="prefix"><MenuIcon item={item.icon} /></span>
+			{/if}
+			{item.label}
+			{@render displayItems(item.items)}
+		</sl-menu-item>
+	{:else if item.type == 'action'}
+		<sl-menu-item onClick={item.action}>
+			{#if item.icon}
+				<span slot="prefix"><MenuIcon item={item.icon} /></span>
 			{/if}
 			<span>{item.label}</span>
-			{#if item.shortcut}
-				<DropdownMenu.Shortcut>{item.shortcut}</DropdownMenu.Shortcut>
-			{/if}
-		</DropdownMenu.Item>
+		</sl-menu-item>
 	{/if}
 	{/each}
+	</sl-menu>
 {/snippet}
 
-<div>
-	<DropdownMenu.Root>
-		<DropdownMenu.Trigger asChild let:builder>
-			{#if trigger}
-				{@render trigger(builder)}
-			{:else}
-				<Button builders={[builder]}>
-					{#if menu.icon}
-						{@const alt = hideLabel ? menu.label : undefined}
-						{@const size = hideLabel ? '1.5em' : undefined}
-						<MenuIcon item={menu.icon} {alt} {size} />
-					{/if}
-					{#if !hideLabel || !menu.icon}
-						{menu.label}
-					{/if}
-				</Button>
+<sl-dropdown>
+	{#if hideLabel && menu.icon}
+		<sl-button slot="trigger" variant="text">
+			<MenuIcon item={menu.icon} alt={menu.label} size="1.5em" />
+		</sl-button>
+	{:else}
+		<sl-button slot="trigger" caret>
+			{#if menu.icon}
+			<span slot="prefix"><MenuIcon item={menu.icon} /></span>
 			{/if}
-		</DropdownMenu.Trigger>
-		<DropdownMenu.Content class="menuPopup">
-			{@render displayItems(menu.items)}
-		</DropdownMenu.Content>
-	</DropdownMenu.Root>
-</div>
+			{menu.label}
+		</sl-button>
+	{/if}
+	{@render displayItems(menu.items)}
+</sl-dropdown>

@@ -1,16 +1,17 @@
 <script lang="ts">
   import { resetMode, setMode } from "mode-watcher";
 	import DropdownMenu from "./DropdownMenu.svelte";
-	import type { Menu } from "../types.js";
+	import type { ActionMenuItem, Menu } from "../types.js";
 	import { Lightbulb } from "./Icons/index.js";
 
-  const menu: Menu = {
+  const menu: Menu<ActionMenuItem> = {
+    type: 'menu',
     icon: Lightbulb,
     label: "Change color mode",
     items: [
-      { label: 'System', action: () => resetMode() },
-      { label: 'Always Light', action: () => setMode("light") },
-      { label: 'Always Dark', action: () => setMode("dark") },
+      { type: 'action', label: 'System', action: () => resetMode() },
+      { type: 'action', label: 'Always Light', action: () => setMode("light") },
+      { type: 'action', label: 'Always Dark', action: () => setMode("dark") },
     ]
   };
 </script>

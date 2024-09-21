@@ -29,18 +29,16 @@ interface BaseMenuItem {
 export interface LinkMenuItem extends BaseMenuItem {
 	type: 'link',
 	href: string,
-	shortcut?: string,
 }
 
 export interface ActionMenuItem extends BaseMenuItem {
 	type: 'action',
 	action: () => void,
-	shortcut?: string,
 }
 
-export interface Menu extends BaseMenuItem {
+export interface Menu<T> extends BaseMenuItem {
 	type: 'menu',
-	items: (MenuItem | 'separator')[],
+	items: MenuItem<T>[],
 }
 
-export type MenuItem = LinkMenuItem | ActionMenuItem | Menu;
+export type MenuItem<T> = T | Menu<T> | 'separator';

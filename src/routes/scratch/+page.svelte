@@ -1,36 +1,38 @@
 <script lang="ts">
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import CopyBlock from "$lib/components/public/CopyBlock.svelte";
-	import type { AppTabLinkItem, AppTabActionItem, Menu } from "$lib/components/types.js";
+	import type { Menu, LinkMenuItem, ActionMenuItem } from "$lib/components/types.js";
   import * as Icons from "$lib/components/public/Icons";
   
-  const tabs: AppTabLinkItem[] = [
-    { href: "#", icon: Icons.Reader, label: "Dashboard" },
-    { href: "#", icon: Icons.Content, label: "Content" },
-    { href: "#", icon: Icons.Notifications, label: "Notifications" },
+  const tabs: LinkMenuItem[] = [
+    { type: 'link', href: "#", icon: Icons.Reader, label: "Dashboard" },
+    { type: 'link', href: "#", icon: Icons.Content, label: "Content" },
+    { type: 'link', href: "#", icon: Icons.Notifications, label: "Notifications" },
   ];
-  const tabAction: AppTabActionItem = {
+  const tabAction: ActionMenuItem = {
+    type: 'action',
 		action: () => { console.log('AppTabActionItem'); },
 		icon: Icons.Plus,
 		label: 'New Content'
 	};
-  const tabMenu: Menu = {
+  const tabMenu: Menu<LinkMenuItem> = {
+    type: 'menu',
 		icon: Icons.Site,
 		label: 'Blog Name',
 		items: [
-			{ href: '#', icon: Icons.Site, label: 'Alternative Blog One' },
-			{ href: '#', icon: Icons.Site, label: 'Alternative Blog Two' },
-			{ href: '#', icon: Icons.Site, label: 'Alternative Blog Three' },
-			{ href: '#', icon: Icons.Site, label: 'Alternative Blog Four' },
+			{ type: 'link', href: '#', icon: Icons.Site, label: 'Alternative Blog One' },
+			{ type: 'link', href: '#', icon: Icons.Site, label: 'Alternative Blog Two' },
+			{ type: 'link', href: '#', icon: Icons.Site, label: 'Alternative Blog Three' },
+			{ type: 'link', href: '#', icon: Icons.Site, label: 'Alternative Blog Four' },
       'separator',
-			{ href: '#', icon: Icons.User, label: 'My Account' },
-			{ href: '#', icon: Icons.User, label: 'Security' },
-			{ href: '#', icon: Icons.Share, label: 'Connections' },
+			{ type: 'link', href: '#', icon: Icons.User, label: 'My Account' },
+			{ type: 'link', href: '#', icon: Icons.User, label: 'Security' },
+			{ type: 'link', href: '#', icon: Icons.Share, label: 'Connections' },
       'separator',
-			{ href: '#', icon: Icons.Lightbulb, label: 'Theme' },
-			{ action: () => { console.log('Menu Item')}, icon: Icons.Smolblog, label: 'About Smolblog' },
+			{ type: 'link', href: '#', icon: Icons.Lightbulb, label: 'Theme' },
+			{ type: 'link', href: '#', icon: Icons.Smolblog, label: 'About Smolblog' },
       'separator',
-			{ action: () => { console.log('Menu Item')}, icon: Icons.Alert, label: 'Log Out' },
+			{ type: 'link', href: '#', icon: Icons.Alert, label: 'Log Out' },
 		]
 	};
 </script>
@@ -52,7 +54,7 @@
 </style>
 
 <div class="make-container sbdemo recolor">
-  <AppTabs {tabs} action={tabAction} menu={tabMenu} global>
+  <AppTabs {tabs} action={tabAction} global>
     <CopyBlock>
       We have copied yet again!
     </CopyBlock>

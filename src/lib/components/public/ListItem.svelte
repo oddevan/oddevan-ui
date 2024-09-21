@@ -1,13 +1,13 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
-	import type { Menu } from "../types.js";
+	import type { ActionMenuItem, Menu } from "../types.js";
 	import DropdownMenu from "./DropdownMenu.svelte";
 
 	interface ListItemProps {
 		icon?: Snippet
 		title: string
 		subtitle?: string
-		actions?: Menu
+		actions?: Menu<ActionMenuItem>
 	}
 
 	let { icon, title, subtitle, actions }: ListItemProps = $props();

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import ListItem from '$lib/components/public/ListItem.svelte';
+	import type { PageData } from './$types.js';
 
 	let { data }: {data: PageData} = $props();
 </script>
