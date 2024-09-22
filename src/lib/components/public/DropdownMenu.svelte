@@ -4,18 +4,18 @@
 	import '@shoelace-style/shoelace/dist/components/dropdown/dropdown.js';
 	import '@shoelace-style/shoelace/dist/components/menu/menu.js';
 	import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
-	import type { ActionMenuItem, Menu, MenuItem } from "../types.js";
+	import type { ActionMenuItem, LinkMenuItem, Menu, MenuItem } from "../types.js";
 	import MenuIcon from "../protected/MenuIcon.svelte";
 
 	interface DropdownMenuProps {
 		hideLabel?: boolean
-		menu: Menu<ActionMenuItem>
+		menu: Menu<ActionMenuItem|LinkMenuItem>
 	}
 
 	let { hideLabel = false, menu }: DropdownMenuProps = $props();
 </script>
 
-{#snippet displayItems(items: MenuItem<ActionMenuItem>[])}
+{#snippet displayItems(items: MenuItem<ActionMenuItem|LinkMenuItem>[])}
 	<sl-menu>
 	{#each items as item}
 	{#if item === 'separator'}
@@ -35,12 +35,19 @@
 			{/if}
 			<span>{item.label}</span>
 		</sl-menu-item>
+	{:else if item.type == 'link'}
+		<a href={item.href}>
+			{#if item.icon}
+				<span slot="prefix"><MenuIcon item={item.icon} /></span>
+			{/if}
+			<span>{item.label}</span>
+		</a>
 	{/if}
 	{/each}
 	</sl-menu>
 {/snippet}
 
-<sl-dropdown>
+<sl-dropdown hoist>
 	{#if hideLabel && menu.icon}
 		<sl-button slot="trigger" variant="text">
 			<MenuIcon item={menu.icon} alt={menu.label} size="1.5em" />

@@ -8,7 +8,7 @@
 	interface AppTabsProps {
 		tabs: LinkMenuItem[]
 		action?: ActionMenuItem,
-		menu?: Menu<ActionMenuItem>,
+		menu?: Menu<ActionMenuItem|LinkMenuItem>,
 		global?: boolean,
 		children: Snippet
 	}

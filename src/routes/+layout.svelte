@@ -1,6 +1,5 @@
 <script lang="ts">
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
-	import { ModeWatcher } from "mode-watcher";
 	import { Alert, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
 
 	// import "./docs.css";
@@ -41,8 +40,6 @@
 		margin-block-end: 1em;
 	}
 </style>
-
-<ModeWatcher />
 
 <div class="make-container">
 	<AppTabs {tabs} global>

@@ -15,7 +15,7 @@
 		icon: Icons.Plus,
 		label: 'New Content'
 	};
-  const tabMenu: Menu<LinkMenuItem> = {
+  const tabMenu: Menu<LinkMenuItem|ActionMenuItem> = {
     type: 'menu',
 		icon: Icons.Site,
 		label: 'Blog Name',
@@ -30,9 +30,9 @@
 			{ type: 'link', href: '#', icon: Icons.Share, label: 'Connections' },
       'separator',
 			{ type: 'link', href: '#', icon: Icons.Lightbulb, label: 'Theme' },
-			{ type: 'link', href: '#', icon: Icons.Smolblog, label: 'About Smolblog' },
+			{ type: 'action', action: () => { console.log('Action!') }, icon: Icons.Smolblog, label: 'About Smolblog' },
       'separator',
-			{ type: 'link', href: '#', icon: Icons.Alert, label: 'Log Out' },
+			{ type: 'action', action: () => { console.log('Action!') }, icon: Icons.Alert, label: 'Log Out' },
 		]
 	};
 </script>
@@ -56,7 +56,7 @@
 </style>
 
 <div class="make-container sbdemo recolor">
-  <AppTabs {tabs} action={tabAction} global>
+  <AppTabs {tabs} action={tabAction} menu={tabMenu} global>
     <CopyBlock>
       We have copied yet again!
     </CopyBlock>
