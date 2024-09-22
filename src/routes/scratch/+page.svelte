@@ -2,7 +2,7 @@
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import CopyBlock from "$lib/components/public/CopyBlock.svelte";
 	import type { Menu, LinkMenuItem, ActionMenuItem } from "$lib/components/types.js";
-  import * as Icons from "$lib/components/public/Icons";
+  import * as Icons from "$lib/components/public/Icons/index.js";
   
   const tabs: LinkMenuItem[] = [
     { type: 'link', href: "#", icon: Icons.Reader, label: "Dashboard" },
@@ -40,7 +40,7 @@
 <style>
   .sbdemo {
     margin: 1em;
-    border: .5em solid hsl(var(--foreground));
+    border: .5em solid var(--on-canvas);
 
     --canvas-light: white;
     --canvas-dark: #1c1d22;
@@ -50,6 +50,8 @@
 
     --border-light: #e7e5e4;
     --border-dark: #514a48;
+
+    background-color: var(--canvas);
   }
 </style>
 

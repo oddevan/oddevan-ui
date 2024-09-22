@@ -1,10 +1,11 @@
 <script lang="ts">
-	import BaseIcon, { type IconProps } from "./BaseIcon.svelte";
+	import type { IconProps } from "$lib/components/types.js";
+	import BaseIcon from "./BaseIcon.svelte";
 
-	interface $$Props extends IconProps {};
+	let props: IconProps = $props();
 </script>
 
-<BaseIcon {...$$props}>
+<BaseIcon {...props}>
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	fill="none"

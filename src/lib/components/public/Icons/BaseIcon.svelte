@@ -1,13 +1,12 @@
 <script lang="ts">
+	import type { IconProps } from "$lib/components/types.js";
 	import type { Snippet } from "svelte";
 
-	export interface IconProps {
-		alt?: string,
-		size?: string,
-		children: Snippet
-	};
+	interface BaseIconProps extends IconProps {
+		children: Snippet;
+	}
 
-	let { alt, size, children }: IconProps = $props();
+	let { alt, size, children }: BaseIconProps = $props();
 
 	let spanProps: Record<string, string> = {};
 	if (alt) {

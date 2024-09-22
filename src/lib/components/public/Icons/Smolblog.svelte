@@ -1,13 +1,15 @@
 <script lang="ts">
-	import BaseIcon, { type IconProps } from "./BaseIcon.svelte";
+	import type { IconProps } from "$lib/components/types.js";
+	import BaseIcon from "./BaseIcon.svelte";
 
-	interface $$Props extends IconProps {
+	interface SmolblogProps extends IconProps {
 		brandColor?: boolean;
-	};
-	export let brandColor = false;
+	}
+
+	let { brandColor = false, ...props }: SmolblogProps = $props();
 </script>
 
-<BaseIcon {...$$restProps}>
+<BaseIcon {...props}>
 <svg
 	version="1.1"
 	id="Layer_1"

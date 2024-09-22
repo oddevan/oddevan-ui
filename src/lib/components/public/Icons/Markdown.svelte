@@ -1,11 +1,12 @@
 <script lang="ts">
-	import BaseIcon, { type IconProps } from "./BaseIcon.svelte";
+	import type { IconProps } from "$lib/components/types.js";
+	import BaseIcon from "./BaseIcon.svelte";
 
-	interface $$Props extends IconProps {};
-	export let alt: string | undefined = 'This field supports Markdown formatting.';
+	let props: IconProps = $props();
+	props.alt ??= 'This field supports Markdown formatting.';
 </script>
 
-<BaseIcon {alt} {...$$restProps}>
+<BaseIcon {...props}>
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 208 128"

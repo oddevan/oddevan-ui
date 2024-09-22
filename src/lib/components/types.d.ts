@@ -1,4 +1,4 @@
-import type { Component } from "svelte"
+import type { Component, Snippet } from "svelte"
 
 // https://stackoverflow.com/a/49725198
 /**
@@ -19,7 +19,12 @@ export type RequireAtLeastOne<T, Keys extends keyof T = keyof T> =
         [K in Keys]-?: Required<Pick<T, K>> & Partial<Pick<T, Exclude<Keys, K>>>
     }[Keys]
 
-export type MenuItemIcon = Component<{ size: string, alt?: string }> | string;
+export interface IconProps {
+	alt?: string,
+	size?: string,
+};
+
+export type MenuItemIcon = Component<IconProps> | string;
 interface BaseMenuItem {
 	icon?: MenuItemIcon,
 	label: string,
