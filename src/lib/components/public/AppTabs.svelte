@@ -62,12 +62,12 @@
 			grid-column: var(--action-button-position);
 			margin: .5em;
 			padding: .5em;
-			background: hsl(var(--action-hsl));
+			background: var(--action);
 			color: hsl(var(--primary-foreground));
 			border-radius: var(--radius);
 
 			&:hover {
-				background: hsl(var(--action-hsl) / 90%);
+				background: calc(var(--action) / 90%);
 			}
 		}
 	}

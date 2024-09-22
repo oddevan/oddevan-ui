@@ -1,29 +1,27 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url(reset.css);
 
 :root {
-  --canvas-light-hsl: 0 0% 100%;
-  --canvas-dark-hsl: 210 100% 20%;
+	--canvas-light: white;
+		--canvas-dark: #036;
 
-  --on-canvas-light-hsl: 20 14.3% 4.1%;
-  --on-canvas-dark-hsl: 60 9.1% 97.8%;
+	--on-canvas-light: #0c0a09;
+		--on-canvas-dark: #fafaf9;
 
-  --action-light-hsl: 210 50% 40%;
-  --action-dark-hsl: 60 100% 40%;
+	--action-light: #369;
+		--action-dark: #cc0;
 
-  --border-light-hsl: 20 5.9% 90%;
-  --border-dark-hsl: 12 6.5% 30%
+	--border-light: #e7e5e4;
+		--border-dark: #514a48;
 }
 
 :root, .recolor {
-  --canvas-hsl: var(--canvas-light-hsl);
-  --on-canvas-hsl: var(--on-canvas-light-hsl);
-  --action-hsl: var(--action-light-hsl);
-  --border-hsl: var(--border-light-hsl);
+	--canvas: var(--canvas-light);
+		--on-canvas: var(--on-canvas-light);
+		--action: var(--action-light);
+		--border: var(--border-light);
 
-  --background: var(--canvas-light-hsl, 0 0% 100%);
-  --foreground: var(--on-canvas-light-hsl, 20 14.3% 4.1%);
+	--background: var(--canvas-light, 0 0% 100%);
+		--foreground: var(--on-canvas-light, 20 14.3% 4.1%);
 
   --muted: 60 4.8% 95.9%;
   --muted-foreground: 25 5.3% 44.7%;
@@ -34,10 +32,10 @@
   --card: 0 0% 100%;
   --card-foreground: 20 14.3% 4.1%;
 
-  --border: var(--border-light-hsl, 20 5.9% 90%);
+	--border: var(--border-light, 20 5.9% 90%);
   --input: 20 5.9% 90%;
 
-  --primary: var(--action-light-hsl, 24 9.8% 10%);
+	--primary: var(--action-light, 24 9.8% 10%);
   --primary-foreground: 60 9.1% 97.8%;
 
   --secondary: 60 4.8% 95.9%;
@@ -55,13 +53,13 @@
 }
 
 .dark, .dark .recolor {
-  --canvas-hsl: var(--canvas-dark-hsl);
-  --on-canvas-hsl: var(--on-canvas-dark-hsl);
-  --action-hsl: var(--action-dark-hsl);
-  --border-hsl: var(--border-dark-hsl);
+	--canvas: var(--canvas-dark);
+		--on-canvas: var(--on-canvas-dark);
+		--action: var(--action-dark);
+		--border: var(--border-dark);
 
-  --background: var(--canvas-dark-hsl, 20 14.3% 4.1%);
-  --foreground: var(--on-canvas-dark-hsl, 60 9.1% 97.8%);
+	--background: var(--canvas-dark, 20 14.3% 4.1%);
+		--foreground: var(--on-canvas-dark, 60 9.1% 97.8%);
 
   --muted: 12 6.5% 15.1%;
   --muted-foreground: 24 5.4% 63.9%;
@@ -72,10 +70,10 @@
   --card: 20 14.3% 4.1%;
   --card-foreground: 60 9.1% 97.8%;
 
-  --border: var(--border-dark-hsl, 12 6.5% 15.1%);
+	--border: var(--border-dark, 12 6.5% 15.1%);
   --input: 12 6.5% 15.1%;
 
-  --primary: var(--action-dark-hsl, 60 9.1% 97.8%);
+	--primary: var(--action-dark, 60 9.1% 97.8%);
   --primary-foreground: 24 9.8% 10%;
 
   --secondary: 12 6.5% 15.1%;
@@ -90,21 +88,15 @@
   --ring: 24 5.7% 82.9%;
 }
 
-* {
-  @apply border-border;
-}
 body {
-  @apply bg-background text-foreground;
+	background-color: var(--canvas);
+		color: var(--on-canvas);
 }
 
 a {
-  color: hsl(var(--action-hsl));
+	color: var(--action);
 }
 
 .make-container {
   container-type: inline-size;
-}
-
-body {
-  /* background: #191b20; */
 }

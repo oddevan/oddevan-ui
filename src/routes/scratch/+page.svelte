@@ -42,14 +42,14 @@
     margin: 1em;
     border: .5em solid hsl(var(--foreground));
 
-    --canvas-light-hsl: 0 0% 100%;
-    --canvas-dark-hsl: 230 10% 12%;
+    --canvas-light: white;
+    --canvas-dark: #1c1d22;
 
-    --action-light-hsl: 114 16% 40%;
-    --action-dark-hsl: 116 40% 71%;
+    --action-light: #597656;
+    --action-dark: #9bd397;
 
-    --border-light-hsl: 20 5.9% 90%;
-    --border-dark-hsl: 12 6.5% 30%;
+    --border-light: #e7e5e4;
+    --border-dark: #514a48;
   }
 </style>
 
