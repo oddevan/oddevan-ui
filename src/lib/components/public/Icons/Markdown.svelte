@@ -2,11 +2,10 @@
 	import type { IconProps } from "$lib/components/types.js";
 	import BaseIcon from "./BaseIcon.svelte";
 
-	let props: IconProps = $props();
-	props.alt ??= 'This field supports Markdown formatting.';
+	let { alt = 'This field supports Markdown formatting.', ...props}: IconProps = $props();
 </script>
 
-<BaseIcon {...props}>
+<BaseIcon {alt} {...props}>
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 208 128"
