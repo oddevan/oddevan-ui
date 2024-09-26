@@ -18,6 +18,6 @@
 
 <h1>oddEvan UI</h1>
 
-<p>Because <a href="https://shadcn-svelte.com/">shadcn-svelte</a> said to make my own system.</p>
+<p><a href="https://shoelace.style/">Shoelace</a> + <a href="https://svelte.dev/">Svelte</a> + an odd touch.</p>
 
 <ModeSwitcher/>
