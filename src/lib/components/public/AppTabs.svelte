@@ -1,13 +1,14 @@
 <script lang="ts">
 	import type { Snippet } from "svelte";
-	import type { AppTabActionItem, AppTabLinkItem, Menu } from "../types.js";
+	import type { ActionMenuItem, LinkMenuItem, Menu } from "../types.js";
 	import DropdownMenu from "./DropdownMenu.svelte";
-	import { Button as BitsButton } from "bits-ui";
+	import MenuIcon from "../protected/MenuIcon.svelte";
+	import { Icons } from "$lib/index.js";
 
 	interface AppTabsProps {
-		tabs: AppTabLinkItem[]
-		action?: AppTabActionItem,
-		menu?: Menu,
+		tabs: LinkMenuItem[]
+		action?: ActionMenuItem,
+		menu?: Menu<ActionMenuItem|LinkMenuItem>,
 		global?: boolean,
 		children: Snippet
 	}
@@ -38,6 +39,7 @@
 	div.apptabcontent {
 		padding-block-end: 1rem;
 		overflow-y: auto;
+		container-type: inline-size;
 	}
 
 	nav.apptabs {
@@ -61,12 +63,12 @@
 			grid-column: var(--action-button-position);
 			margin: .5em;
 			padding: .5em;
-			background: hsl(var(--action-hsl));
+			background: var(--action);
 			color: hsl(var(--primary-foreground));
 			border-radius: var(--radius);
 
 			&:hover {
-				background: hsl(var(--action-hsl) / 90%);
+				background: calc(var(--action) / 90%);
 			}
 		}
 	}
@@ -132,10 +134,9 @@
 	<div class="apptabtabs">
 		<nav class="apptabs">
 			{#each tabs as {label, icon, href}}
-				{@const IconComponent = icon}
 				<a {href}>
 					<span class="icon">
-						<IconComponent size="1.5em" />
+						<MenuIcon item={icon ?? Icons.Plus} size="1.5em" />
 					</span>
 					<span class="label">
 						{label}
@@ -145,7 +146,7 @@
 			{#if action}
 				<button class="action" onclick={action.action} style={buttonStyle}>
 					<span class="icon">
-						<action.icon size="1.5em" />
+						<MenuIcon item={action.icon ?? Icons.Plus} size="1.5em" />
 					</span>
 					<span class="label">
 						{action.label}
@@ -154,18 +155,7 @@
 			{/if}
 			{#if menu}
 				<span class="apptabmenu">
-					<DropdownMenu {menu}>
-						{#snippet trigger(builder)}
-							<BitsButton.Root builders={[builder]} class="apptabmenutrigger">
-								<span class="icon">
-									<menu.icon size="1.5em" />
-								</span>
-								<span class="label">
-									{menu.label}
-								</span>
-							</BitsButton.Root>
-						{/snippet}
-					</DropdownMenu>
+					<DropdownMenu {menu} hideLabel={false} />
 				</span>
 			{/if}
 		</nav>

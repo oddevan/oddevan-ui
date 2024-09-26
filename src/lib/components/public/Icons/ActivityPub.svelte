@@ -1,10 +1,11 @@
 <script lang="ts">
-	import BaseIcon, { type IconProps } from "./BaseIcon.svelte";
+	import type { IconProps } from "$lib/components/types.js";
+	import BaseIcon from "./BaseIcon.svelte";
 
-	interface $$Props extends IconProps {};
+	let props: IconProps = $props();
 </script>
 
-<BaseIcon {...$$props}>
+<BaseIcon {...props}>
 	<svg width="108.01" height="68.032" version="1.1" viewBox="0 0 28.579 18" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 		<title>ActivityPub logo</title>
 		<g transform="translate(-1.3229 133.5)">

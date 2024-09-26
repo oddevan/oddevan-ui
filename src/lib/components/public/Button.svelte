@@ -1,13 +1,15 @@
 <script lang="ts">
-	import Button from '$lib/components/ui/button/button.svelte';
-	import type { Snippet } from 'svelte';
+	import type { Component, Snippet } from 'svelte';
+	import '@shoelace-style/shoelace/dist/components/button/button.js';
 
 	interface ButtonProps {
 		primary?: boolean;
 		destructive?: boolean;
 		disabled?: boolean;
 		noborder?: boolean;
-		action?: (e?: Event) => void;
+		icon?: Component;
+		action?: () => void|Promise<void>;
+		href?: string;
 		children: Snippet;
 	}
 
@@ -16,23 +18,19 @@
 		destructive = false,
 		disabled = false,
 		noborder = false,
-		action = () => {},
+		icon: Icon,
+		action,
+		href,
 		children,
-		...restProps
 	}: ButtonProps = $props();
 
-	let variant: 'destructive'|'default'|'outline'|'ghost' =
-		destructive ? 'destructive' : primary ? 'default' : noborder ? 'ghost' : 'outline';
+	let variant: 'danger'|'primary'|'default'|'text' =
+		destructive ? 'danger' : primary ? 'primary' : noborder ? 'text' : 'default';
+	
+	let actionProp = href ? { href } : action ? { onclick: action } : { type: 'submit' };
 </script>
 
-<style>
-	span :global(button[data-button-root]) {
-		gap: .5em;
-	}
-</style>
-
-<span>
-	<Button {variant} {disabled} {...restProps} on:click={action} on:keydown={action}>
-		{@render children()}
-	</Button>
-</span>
+<sl-button {variant} {disabled} {...actionProp}>
+	{#if Icon}<span slot="prefix"><Icon /></span>{/if}
+	{@render children()}
+</sl-button>

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { ClipboardCopy, Check } from '$lib/components/public/Icons';
-	import Button from '$lib/components/public/Button.svelte';
+	import '@shoelace-style/shoelace/dist/components/copy-button/copy-button.js';
+	import type { Snippet } from 'svelte';
 
 	interface CopyBlockProps {
 		children: Snippet,
@@ -8,17 +8,7 @@
 
 	let { children }: CopyBlockProps = $props();
 
-	let copied = $state(false);
-	let copyTarget: HTMLDivElement;
-
-	const engage = async () => {
-		try {
-			await navigator.clipboard.writeText(copyTarget.textContent);
-			copied = true;
-		} catch (error) {
-			console.error(error.message);
-		}
-	};
+	let divId = crypto.randomUUID();
 </script>
 
 <style>
@@ -26,13 +16,12 @@
 		position: relative;
 	}
 
-	.copyBlock :global(.copyBlockButton) {
+	.copyBlock .copyBlockButton {
 		position: absolute;
-		top: 0;
-		right: 0;
-		padding: .5em;
-		height: auto;
+		top: 1px;
+		right: 1px;
 		font-size: 1rem;
+		border-radius: var(--radius);
 	}
 
 	.copyBlockTarget {
@@ -42,15 +31,9 @@
 </style>
 
 <div class="copyBlock">
-	<Button action={engage} class="copyBlockButton">
-		{#if copied}
-			<Check />
-		{:else}
-			<ClipboardCopy />
-		{/if}
-	</Button>
+	<sl-copy-button class="copyBlockButton" from={divId}></sl-copy-button>
 
-	<div class="copyBlockTarget" bind:this={copyTarget}>
+	<div class="copyBlockTarget" id={divId}>
 		{@render children()}
 	</div>
 </div>

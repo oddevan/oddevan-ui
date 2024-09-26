@@ -1,30 +1,25 @@
 <script lang="ts">
-  import * as Card from "$lib/components/ui/card";
+	import '@shoelace-style/shoelace/dist/components/card/card.js';
 	import type { Snippet } from "svelte";
 
 	interface CardProps {
 		title?: string
-		subtitle?: string
+		headerTag?: string
 		children: Snippet
 		footer?: Snippet
 	}
 
-	let { title, subtitle, children, footer }: CardProps = $props();
+	let { title, headerTag = 'h3', children, footer }: CardProps = $props();
 </script>
 
-<Card.Root>
-	{#if title || subtitle }
-		<Card.Header>
-			{#if title}<Card.Title>{ title }</Card.Title>{/if}
-			{#if subtitle}<Card.Description>{ subtitle }</Card.Description>{/if}
-		</Card.Header>
+<sl-card>
+	{#if title}
+		<svelte:element this={headerTag} class="cardHeader" slot="header">{ title }</svelte:element>
 	{/if}
-	<Card.Content>
-		{@render children()}
-	</Card.Content>
+	{@render children()}
 	{#if footer}
-		<Card.Footer>
+		<div slot="footer">
 			{@render footer()}
-		</Card.Footer>
+		</div>
 	{/if}
-</Card.Root>
+</sl-card>

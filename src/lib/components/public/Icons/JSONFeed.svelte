@@ -1,10 +1,11 @@
 <script lang="ts">
-	import BaseIcon, { type IconProps } from "./BaseIcon.svelte";
+	import type { IconProps } from "$lib/components/types.js";
+	import BaseIcon from "./BaseIcon.svelte";
 
-	interface $$Props extends IconProps {};
+	let props: IconProps = $props();
 </script>
 
-<BaseIcon {...$$props}>
+<BaseIcon {...props}>
 	<svg viewBox="0 0 140 140" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 			<!-- Generator: Sketch 43.2 (39069) - http://www.bohemiancoding.com/sketch -->
 			<title>JSON Feed</title>
