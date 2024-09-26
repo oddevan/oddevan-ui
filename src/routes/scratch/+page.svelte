@@ -36,11 +36,6 @@
 			{ type: 'action', action: () => { console.log('Action!') }, icon: Icons.Alert, label: 'Log Out' },
 		]
 	};
-
-  const formTemplate: FormFieldTemplate[] = [
-    { type: 'text', name: 'text', label: 'Title', required: true },
-    { type: 'markdown', name: 'body', label: 'Body', description: 'What\'s going on?' },
-  ];
 </script>
 
 <style>
@@ -66,7 +61,5 @@
     <CopyBlock>
       We have copied yet again!
     </CopyBlock>
-
-    <Form template={formTemplate} action={async (form) => {console.log(form)}} />
   </AppTabs>
 </div>

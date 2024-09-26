@@ -1,6 +1,6 @@
 <script lang="ts">
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
-	import { Alert, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
+	import { Alert, Edit, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
 
 	// import "./docs.css";
 	import "$lib/oddevan.css";
@@ -20,29 +20,15 @@
 	const tabs: LinkMenuItem[] = [
 		{ type: 'link', href: '/', icon: Home, label: 'Home' },
 		{ type: 'link', href: '/components', icon: Code, label: 'Components' },
+		{ type: 'link', href: '/forms', icon: Edit, label: 'Form Builder' },
 		{ type: 'link', href: '/icons', icon: Alert, label: 'Icons' },
 		{ type: 'link', href: '/scratch', icon: Smolblog, label: 'Dashboard Demo' }
 	];
 </script>
 
-<style>
-	div :global(h1) {
-		font-size: 3rem;
-		font-weight: bold;
-	}
-
-	div :global(h2) {
-		font-size: 2rem;
-		font-weight: bold;
-	}
-
-	div :global(h1), div :global(h2), div :global(p) {
-		margin-block-end: 1em;
-	}
-</style>
-
 <div class="make-container">
 	<AppTabs {tabs} global>
+		<div aria-hidden="true" style="padding-block-start: 5px;">&nbsp;</div>
 		<SiteLogo/>
 		{@render children()}
 	</AppTabs>

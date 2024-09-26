@@ -39,6 +39,7 @@
 	div.apptabcontent {
 		padding-block-end: 1rem;
 		overflow-y: auto;
+		container-type: inline-size;
 	}
 
 	nav.apptabs {

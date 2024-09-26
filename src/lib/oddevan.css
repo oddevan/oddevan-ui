@@ -6,7 +6,9 @@
 
 	--on-canvas-light: #0c0a09;
 		--on-canvas-dark: #fafaf9;
-
+  
+  --on-canvas-muted-light: #726e6c;
+    --on-canvas-muted-dark: #a39e9a;
 	--action-light: #369;
 		--action-dark: #cc0;
 
@@ -17,6 +19,7 @@
 :root, .recolor {
 	--canvas: var(--canvas-light);
 		--on-canvas: var(--on-canvas-light);
+    --on-canvas-muted: var(--on-canvas-muted-light);
 		--action: var(--action-light);
 		--border: var(--border-light);
 
@@ -55,6 +58,7 @@
 .dark, .dark .recolor {
 	--canvas: var(--canvas-dark);
 		--on-canvas: var(--on-canvas-dark);
+    --on-canvas-muted: var(--on-canvas-muted-dark);
 		--action: var(--action-dark);
 		--border: var(--border-dark);
 
@@ -90,13 +94,18 @@
 
 body {
 	background-color: var(--canvas);
-		color: var(--on-canvas);
+  color: var(--on-canvas);
+  margin: 0;
+    font-family: var(--sl-font-sans);
 }
 
 a {
 	color: var(--action);
 }
 
+nav a {
+  text-decoration: none;
+}
 .make-container {
   container-type: inline-size;
 }

@@ -28,7 +28,7 @@
 
 			.subtitle {
 				font-size: .7em;
-				color: hsl(var(--muted-foreground));
+				color: var(--on-canvas-muted);
 			}
 		}
 

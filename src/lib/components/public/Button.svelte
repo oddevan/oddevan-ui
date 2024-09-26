@@ -24,8 +24,8 @@
 		children,
 	}: ButtonProps = $props();
 
-	let variant: 'danger'|'default'|'default'|'text' =
-		destructive ? 'danger' : primary ? 'default' : noborder ? 'text' : 'default';
+	let variant: 'danger'|'primary'|'default'|'text' =
+		destructive ? 'danger' : primary ? 'primary' : noborder ? 'text' : 'default';
 	
 	let actionProp = href ? { href } : action ? { onclick: action } : { type: 'submit' };
 </script>
