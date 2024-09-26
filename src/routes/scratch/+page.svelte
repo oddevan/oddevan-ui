@@ -1,8 +1,9 @@
 <script lang="ts">
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import CopyBlock from "$lib/components/public/CopyBlock.svelte";
-	import type { Menu, LinkMenuItem, ActionMenuItem } from "$lib/components/types.js";
+	import type { Menu, LinkMenuItem, ActionMenuItem, FormFieldTemplate } from "$lib/components/types.js";
   import * as Icons from "$lib/components/public/Icons/index.js";
+	import Form from "$lib/components/protected/Form.svelte";
   
   const tabs: LinkMenuItem[] = [
     { type: 'link', href: "#", icon: Icons.Reader, label: "Dashboard" },
@@ -35,6 +36,11 @@
 			{ type: 'action', action: () => { console.log('Action!') }, icon: Icons.Alert, label: 'Log Out' },
 		]
 	};
+
+  const formTemplate: FormFieldTemplate[] = [
+    { type: 'text', name: 'text', label: 'Title', required: true },
+    { type: 'markdown', name: 'body', label: 'Body', description: 'What\'s going on?' },
+  ];
 </script>
 
 <style>
@@ -60,5 +66,7 @@
     <CopyBlock>
       We have copied yet again!
     </CopyBlock>
+
+    <Form template={formTemplate} action={async (form) => {console.log(form)}} />
   </AppTabs>
 </div>

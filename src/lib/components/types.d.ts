@@ -47,3 +47,50 @@ export interface Menu<T> extends BaseMenuItem {
 }
 
 export type MenuItem<T> = T | Menu<T> | 'separator';
+
+///////////////////
+
+interface BaseFormFieldTemplate {
+	name: string,
+	label: string,
+	type: unknown,
+	description?: string,
+	required?: boolean,
+}
+
+export interface TextFormFieldTemplate extends BaseFormFieldTemplate {
+	type: 'email' | 'text' | 'url' | 'phone' | 'password',
+	minCharacters?: number,
+	maxCharacters?: number,
+	pattern?: RegExp
+}
+
+export interface MarkdownFormFieldTemplate extends BaseFormFieldTemplate {
+	type: 'markdown',
+	minCharacters?: number,
+	maxCharacters?: number,
+	previewCallback?: (input: string) => Promise<string>,
+}
+
+export interface StaticFormFieldTemplate extends BaseFormFieldTemplate {
+	type: 'static',
+	hidden?: boolean,
+}
+
+export interface DateTimeFormFieldTemplate extends BaseFormFieldTemplate {
+	type: 'datetime',
+	intervalInSeconds?: number,
+	beforeOrAt?: Date,
+	atOrAfter?: Date,
+}
+
+export type FormFieldTemplate =
+	TextFormFieldTemplate |
+	MarkdownFormFieldTemplate |
+	StaticFormFieldTemplate |
+	DateTimeFormFieldTemplate;
+
+// Don't know if we need this? Are we making individual components for fields?
+// export interface BaseFormFieldProps<T> extends BaseFormFieldTemplate {
+// 	value?: T,
+// }
