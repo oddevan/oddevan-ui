@@ -13,16 +13,14 @@
 	.buttonbar {
 		display: flex;
 		flex-direction: row-reverse;
-		gap: .5em;
+		gap: var(--spacing);
 		justify-content: space-between;
-		padding: .5em;
-		margin: .5em;
 		width: 100%;
 	}
 
 	.leading, .main {
 		display: flex;
-		gap: .5em;
+		gap: var(--spacing);
 		flex-direction: row;
 	}
 </style>

@@ -13,11 +13,19 @@ oneline: You know what it is.
 
 <ComponentDemo>
 	{#snippet demo()}
+	<div style="display: flex; flex-direction: row; gap: var(--spacing)">
+		<Button action={demoAction}>Button</Button>
 		<Button primary action={demoAction}>Button</Button>
+		<Button destructive action={demoAction}>Button</Button>
+		<Button noborder action={demoAction}>Button</Button>
+	</div>
 	{/snippet}
 
 ```svelte
+<Button action={demoAction}>Button</Button>
 <Button primary action={demoAction}>Button</Button>
+<Button destructive action={demoAction}>Button</Button>
+<Button noborder action={demoAction}>Button</Button>
 ```
 
 </ComponentDemo>

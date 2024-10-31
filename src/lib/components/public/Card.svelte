@@ -9,8 +9,29 @@
 		footer?: Snippet
 	}
 
-	let { title, headerTag = 'h3', children, footer }: CardProps = $props();
+	let { title, headerTag = 'h2', children, footer }: CardProps = $props();
 </script>
+
+<style>
+	sl-card {
+		width: 100%;
+		--border-color: var(--border);
+		--border-radius: var(--radius);
+		--padding: var(--spacing);
+		
+		&::part(base){
+			background-color: var(--shaded);
+		}
+
+		&::part(header) {
+			padding: var(--spacing);
+		}
+	}
+
+	.cardHeader {
+		margin: 0;
+	}
+</style>
 
 <sl-card>
 	{#if title}

@@ -2,7 +2,7 @@
 
 :root {
 	--canvas-light: white;
-	--canvas-dark: #black;
+	--canvas-dark: black;
 
 	--on-canvas-light: #0c0a09;
 	--on-canvas-dark: #fafaf9;
@@ -13,9 +13,23 @@
 	--action-light: #369;
 	--action-dark: #5af;
 
-	--border-light: #e7e5e4;
-	--border-dark: #514a48;
-	--radius: 0.5rem;
+	--on-action-light: white;
+	--on-action-dark: black;
+
+	--shaded-light: #f7f7f7;
+	--shaded-dark: #514a48;
+
+	--border-light: #b3b2b2;
+	--border-dark: #7f7876;
+
+	--radius: 0.5em;
+	--spacing: .75em;
+
+	/************* Calculated Values **************/
+
+	--radius-inner: calc(var(--radius) * .66);
+	--action-hover-light: color-mix(in srgb, var(--action-light) 90%, white);
+	--action-hover-dark: color-mix(in srgb, var(--action-dark) 90%, black);
 }
 
 :root,
@@ -24,77 +38,24 @@
 	--on-canvas: var(--on-canvas-light);
 	--on-canvas-muted: var(--on-canvas-muted-light);
 	--action: var(--action-light);
+	--on-action: var(--on-action-light);
+	--shaded: var(--shaded-light);
 	--border: var(--border-light);
-
-	--background: var(--canvas-light, 0 0% 100%);
-	--foreground: var(--on-canvas-light, 20 14.3% 4.1%);
-
-	--muted: 60 4.8% 95.9%;
-	--muted-foreground: 25 5.3% 44.7%;
-
-	--popover: 0 0% 100%;
-	--popover-foreground: 20 14.3% 4.1%;
-
-	--card: 0 0% 100%;
-	--card-foreground: 20 14.3% 4.1%;
-
-	--border: var(--border-light, 20 5.9% 90%);
-	--input: 20 5.9% 90%;
-
-	--primary: var(--action-light, 24 9.8% 10%);
-	--primary-foreground: 60 9.1% 97.8%;
-
-	--secondary: 60 4.8% 95.9%;
-	--secondary-foreground: 24 9.8% 10%;
-
-	--accent: 60 4.8% 95.9%;
-	--accent-foreground: 24 9.8% 10%;
-
-	--destructive: 0 72.2% 50.6%;
-	--destructive-foreground: 60 9.1% 97.8%;
-
-	--ring: 20 14.3% 4.1%;
-
-	--radius: 0.5rem;
+	--scheme: light;
+	--action-hover: var(--action-hover-light);
 }
 
 .dark,
 .dark .recolor {
 	--canvas: var(--canvas-dark);
 	--on-canvas: var(--on-canvas-dark);
-
 	--on-canvas-muted: var(--on-canvas-muted-dark);
 	--action: var(--action-dark);
+	--on-action: var(--on-action-dark);
+	--shaded: var(--shaded-dark);
 	--border: var(--border-dark);
-
-	--background: var(--canvas-dark, 20 14.3% 4.1%);
-	--foreground: var(--on-canvas-dark, 60 9.1% 97.8%);
-
-	--muted: 12 6.5% 15.1%;
-	--muted-foreground: 24 5.4% 63.9%;
-
-	--popover: 20 14.3% 4.1%;
-	--popover-foreground: 60 9.1% 97.8%;
-
-	--card: 20 14.3% 4.1%;
-	--card-foreground: 60 9.1% 97.8%;
-
-	--border: var(--border-dark, 12 6.5% 15.1%);
-	--input: 12 6.5% 15.1%;
-
-	--primary: var(--action-dark, 60 9.1% 97.8%);
-	--primary-foreground: 24 9.8% 10%;
-
-	--secondary: 12 6.5% 15.1%;
-	--secondary-foreground: 60 9.1% 97.8%;
-
-	--accent: 12 6.5% 15.1%;
-	--accent-foreground: 60 9.1% 97.8%;
-
-	--destructive: 0 62.8% 30.6%;
-	--destructive-foreground: 60 9.1% 97.8%;
-
-	--ring: 24 5.7% 82.9%;
+	--scheme: dark;
+	--action-hover: var(--action-hover-dark);
 }
 
 body {
@@ -102,6 +63,7 @@ body {
 	color: var(--on-canvas);
 	margin: 0;
 	font-family: var(--sl-font-sans);
+	color-scheme: var(--scheme);
 }
 
 a {

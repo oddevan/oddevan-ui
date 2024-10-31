@@ -12,7 +12,7 @@
 
 <style>
 	.demo {
-		border: 1px solid hsl(var(--border));
+		border: 1px solid var(--border);
 		border-radius: var(--radius);
 	}
 
@@ -30,7 +30,7 @@
 	.demo :global(.copyBlockButton) {
 		background: #2b2b2b;
 		color: white;
-		border-color: hsl(var(--border-dark));
+		border-color: var(--border-dark);
 	}
 </style>
 
