@@ -1,12 +1,13 @@
 # oddEvan UI
 
-Because I can. Maybe.
+Because I can. Maybe I can.
 
 Current iteration is based on [Shoelace](https://shoelace.style), the web components that are going to become
 [Web Awesome](https://www.kickstarter.com/projects/fontawesome/web-awesome). I'm aiming to have very little global CSS
 (if any) so that it will fit into multiple projects without having to contort those projects to fit it.
 
-Anyway, this is more of an experiment than anything else. No idea if this will actually be useful to anyone, including myself. Use at your own (very substantial!) risk.
+Anyway, this is more of an experiment than anything else. No idea if this will actually be useful to anyone, including
+myself. Use at your own (very substantial!) risk.
 
 ## To install
 
