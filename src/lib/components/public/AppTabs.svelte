@@ -46,7 +46,7 @@
 		display: grid;
 		grid-auto-flow: column;
 		justify-content: space-between;
-		border-top: 1px solid hsl(var(--border));
+		border-top: 1px solid var(--border);
 		width: 100%;
 
 		& a, & .apptabmenu :global(.apptabmenutrigger) {
@@ -54,7 +54,7 @@
 			padding: 1em;
 	
 			&:hover {
-				background: hsl(var(--accent));
+				background: var(--shaded);
 			}
 		}
 
@@ -64,11 +64,11 @@
 			margin: .5em;
 			padding: .5em;
 			background: var(--action);
-			color: hsl(var(--primary-foreground));
+			color: var(--on-canvas);
 			border-radius: var(--radius);
 
 			&:hover {
-				background: calc(var(--action) / 90%);
+				background: var(--action-hover);
 			}
 		}
 	}
@@ -81,14 +81,18 @@
 		div.apptabshell {
 			display: grid;
 			grid-template-columns: 3.5rem auto;
-			gap: 1rem;
+			gap: var(--spacing);
 
 			&.global {
 				padding-block-end: 0;
 			}
 
 			div.apptabtabs {
-				border-inline-end: 1px solid hsl(var(--border));
+				border-inline-end: 1px solid var(--border);
+			}
+
+			div.apptabcontent {
+				padding-inline-end: var(--spacing);
 			}
 
 			nav.apptabs {

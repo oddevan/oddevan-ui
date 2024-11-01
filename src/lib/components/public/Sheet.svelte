@@ -40,6 +40,13 @@
 		};
 	});
 </script>
+
+<style>
+	sl-dialog, sl-drawer {
+		--sl-panel-background-color: var(--canvas);
+		--sl-panel-border-color: var(--border);
+	}
+</style>
  
 {#if typeof window !== 'undefined' && query.matches}
   <sl-dialog bind:this={dialogElement} label={title}>

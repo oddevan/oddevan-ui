@@ -50,6 +50,13 @@
 		gap: 1em;
 	}
 
+	sl-input {
+		&::part(input), &::part(password-toggle-button) {
+			background: var(--canvas);
+			color: var(--on-canvas-muted);
+		}
+	}
+
 	@container (min-width: 30rem) {
 		form :global(sl-input), form :global(sl-textarea) {
 			:global(&::part(form-control)) {

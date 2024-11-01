@@ -36,12 +36,7 @@
 			<span>{item.label}</span>
 		</sl-menu-item>
 	{:else if item.type == 'link'}
-		<a href={item.href}>
-			{#if item.icon}
-				<span slot="prefix"><MenuIcon item={item.icon} /></span>
-			{/if}
-			<span>{item.label}</span>
-		</a>
+		<!-- Links not currently supported -->
 	{/if}
 	{/each}
 	</sl-menu>

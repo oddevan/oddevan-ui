@@ -1,5 +1,7 @@
 <script lang="ts">
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
+	import TitleBar from "$lib/components/public/TitleBar.svelte";
+	import ModeSwitcher from "$lib/components/public/ModeSwitcher.svelte";
 	import { Alert, Edit, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
 
 	// import "./docs.css";
@@ -28,8 +30,13 @@
 
 <div class="make-container">
 	<AppTabs {tabs} global>
-		<div aria-hidden="true" style="padding-block-start: 5px;">&nbsp;</div>
-		<SiteLogo/>
+		<!-- <div aria-hidden="true" style="padding-block-start: 5px;">&nbsp;</div> -->
+		<TitleBar>
+			<SiteLogo/>
+			{#snippet ending()}
+				<ModeSwitcher/>
+			{/snippet}
+		</TitleBar>
 		{@render children()}
 	</AppTabs>
 </div>

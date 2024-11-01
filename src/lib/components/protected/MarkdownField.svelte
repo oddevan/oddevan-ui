@@ -15,6 +15,11 @@
 		display: flex;
 		justify-content: space-between;
 	}
+
+	sl-textarea::part(textarea) {
+		background-color: var(--canvas);
+		color: var(--on-canvas);
+	}
 </style>
 
 <sl-textarea

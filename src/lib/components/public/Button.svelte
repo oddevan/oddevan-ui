@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { Component, Snippet } from 'svelte';
 	import '@shoelace-style/shoelace/dist/components/button/button.js';
+	import type { IconProps } from '../types.js';
 
 	interface ButtonProps {
 		primary?: boolean;
@@ -8,7 +9,7 @@
 		disabled?: boolean;
 		noborder?: boolean;
 		block?: boolean;
-		icon?: Component;
+		icon?: Component<IconProps>;
 		action?: () => void|Promise<void>;
 		href?: string;
 		children: Snippet;
@@ -36,14 +37,24 @@
 	sl-button {
 		border-radius: var(--radius--inner);
 
+		&.default::part(base) {
+			background-color: var(--canvas);
+			color: var(--on-canvas);
+			border-color: var(--on-canvas);
+		}
+
+		&.default:hover::part(base) {
+			background-color: var(--shaded);
+		}
+
 		&.primary::part(base) {
-			background-color: var(--action);
-			color: var(--on-action);
-			border-color: var(--action);
+			background-color: var(--action-light);
+			color: var(--on-action-light);
+			border-color: var(--action-light);
 		}
 
 		&.primary:hover::part(base) {
-			background-color: var(--action-hover);
+			background-color: var(--action-hover-light);
 		}
 
 		&.text::part(base) {
@@ -64,11 +75,12 @@
 			align-items: center;
 			justify-content: center;
 			gap: var(--spacing);
+			line-height: normal;
 		}
 	}
 </style>
 
 <sl-button {variant} class={variant} class:block {disabled} {...actionProp}>
-	{#if Icon}<span class="icon"><Icon /></span>{/if}
+	{#if Icon}<Icon size="1.5em" />{/if}
 	<span class="label">{@render children()}</span>
 </sl-button>

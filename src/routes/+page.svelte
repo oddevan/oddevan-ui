@@ -1,5 +1,4 @@
 <script lang="ts">
-	import ModeSwitcher from "$lib/components/public/ModeSwitcher.svelte";
 	import * as Icons from "$lib/components/public/Icons/index.js";
 	import type { ActionMenuItem, LinkMenuItem, Menu } from "$lib/components/types.js";
 
@@ -19,5 +18,3 @@
 <h1>oddEvan UI</h1>
 
 <p><a href="https://shoelace.style/">Shoelace</a> + <a href="https://svelte.dev/">Svelte</a> + an odd touch.</p>
-
-<ModeSwitcher/>
