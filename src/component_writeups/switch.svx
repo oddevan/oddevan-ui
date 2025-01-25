@@ -1,0 +1,29 @@
+---
+layout: demo
+name: Switch
+oneline: An on-off state indicator
+---
+
+<script lang="ts">
+	import ComponentDemo from '$lib/components/public/ComponentDemo.svelte';
+	import Switch from '$lib/components/public/Switch.svelte';
+</script>
+
+<ComponentDemo>
+	{#snippet demo()}
+		<Switch label="Let it go" onSwitch={(on) => console.log(`The switch is ${on ? 'on' : 'off'}`)} />
+	{/snippet}
+
+```svelte
+<Switch label="Let it go" onSwitch={(on) => console.log(`The switch is ${on ? 'on' : 'off'}`)} />
+```
+
+</ComponentDemo>
+
+Let's get one very important thing out of the way: _this is a button, not a checkbox._ A checkbox sets a value,
+but a switch does a thing. There's no toggle-then-save; when a user flips a switch they expect the action to be
+taken immediately.
+
+Lots of credit to
+[Josh Collinsworth's post on accessible toggle buttons](https://joshcollinsworth.com/blog/accessible-toggle-buttons)
+which served as a guidebook on making this component.
