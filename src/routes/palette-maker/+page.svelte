@@ -104,6 +104,12 @@
 	<a href="https://readtech.org/ARC/tests/visual-readability-contrast/?tn=intro#">visual readability constrast</a>.
 </p>
 
+<p>
+	Courtesy <a href="https://gka.github.io/chroma.js/#color">chroma.js</a> and
+	<a href="http://apcaw3.myndex.com">APCA-W3</a>. Directly inspired by
+	<a href="https://accessiblepalette.com">Accessible Palette</a>.
+</p>
+
 <Card title="Palette Options">
 	<Button action={addPaletteColor} primary>Add Color</Button>
 	<Button action={() => {seeds.pop()}} destructive>Remove Color</Button>
