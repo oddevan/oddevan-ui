@@ -2,7 +2,7 @@
 	import AppTabs from "$lib/components/public/AppTabs.svelte";
 	import TitleBar from "$lib/components/public/TitleBar.svelte";
 	import ModeSwitcher from "$lib/components/public/ModeSwitcher.svelte";
-	import { Alert, Edit, Home, Smolblog, Code } from "$lib/components/public/Icons/index.js";
+	import { Alert, Edit, Home, Swatches, Code } from "$lib/components/public/Icons/index.js";
 
 	// import "./docs.css";
 	import "$lib/oddevan.css";
@@ -24,7 +24,7 @@
 		{ type: 'link', href: '/components', icon: Code, label: 'Components' },
 		{ type: 'link', href: '/forms', icon: Edit, label: 'Form Builder' },
 		{ type: 'link', href: '/icons', icon: Alert, label: 'Icons' },
-		{ type: 'link', href: '/scratch', icon: Smolblog, label: 'Dashboard Demo' }
+		{ type: 'link', href: '/palette-maker', icon: Swatches, label: 'Palette Maker' }
 	];
 </script>
 

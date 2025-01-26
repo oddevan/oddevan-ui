@@ -32,6 +32,7 @@ export { default as ShareApple } from './ShareApple.svelte';
 export { default as Site } from './Site.svelte';
 export { default as Smolblog } from './Smolblog.svelte';
 export { default as Status } from './Status.svelte';
+export { default as Swatches } from './Swatches.svelte';
 export { default as Trash } from './Trash.svelte';
 export { default as Tumblr } from './Tumblr.svelte';
 export { default as Upload } from './Upload.svelte';

@@ -1,7 +1,7 @@
 <script lang="ts">
 
 	let { on = $bindable(false), onSwitch = () => {}, label}:
-		{ on: boolean, onSwitch: (on: boolean) => void, label: string} = $props();
+		{ on?: boolean, onSwitch?: (on: boolean) => void, label: string} = $props();
 
 	function toggle() {
 		on = !on;
@@ -21,55 +21,36 @@
 	}
 
 	div.toggle {
-		display: flex;
-		flex-direction: row;
-		justify-content: start;
-		width: 2.5em;
-		padding: .25em;
+		width: 2.6em;
+		height: 1.5em;
 		background-color: var(--shaded);
-		border: 1px solid var(--border);
+		border: .05em solid var(--border);
+		border-radius: var(--switch-radius, .8em);
+		transition: all .2s ease-in-out;
+		position: relative;
 
 		> div {
-			position: relative;
+			position: absolute;
+			inset-block-start: .225em;
+			inset-inline-start: .3em;
 			width: 1em;
 			height: 1em;
 			background-color: var(--on-canvas);
-
-			> span {
-				width: .9em;
-				height: .1em;
-				position: absolute;
-				top: .45em;
-				left: .05em;
-				background-color: var(--canvas);
-
-				&:first-child {
-					transform: rotate(45deg);
-				}
-				&:last-child {
-					transform: rotate(-45deg);
-				}
-			}
+			transition: all .2s ease-in-out;
+			border-radius: var(--switch-radius, .8em);
+			background-size: 80%;
+			background-position: center;
+			background-repeat: no-repeat;
+			/* background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentcolor"><path fill-rule="evenodd" d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z" clip-rule="evenodd" /></svg>'); */
 		}
 	}
 
 	button[aria-pressed=true] div.toggle {
-		justify-content: end;
-
+		background-color: var(--action);
 		& > div {
-			background-color: var(--action);
-
-			> span {
-				&:first-child {
-					transform: rotate(45deg);
-					width: .4em;
-					top: .7em;
-				}
-				&:last-child {
-					transform: rotate(-60deg);
-					left: .15em;
-				}
-			}
+			background-color: var(--on-action);
+			inset-inline-start: 1.25em;
+			/* background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentcolor"><path fill-rule="evenodd" d="M19.916 4.626a.75.75 0 01.208 1.04l-9 13.5a.75.75 0 01-1.154.114l-6-6a.75.75 0 011.06-1.06l5.353 5.353 8.493-12.739a.75.75 0 011.04-.208z" clip-rule="evenodd" /></svg>'); */
 		}
 	}
 </style>
@@ -77,8 +58,6 @@
 <button aria-pressed={on} onclick={toggle}>
 	<div class="toggle" aria-hidden="true">
 		<div>
-			<span></span>
-			<span></span>
 		</div>
 	</div>
 	<span class="label">

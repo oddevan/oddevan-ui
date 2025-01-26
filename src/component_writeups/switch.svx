@@ -27,3 +27,7 @@ taken immediately.
 Lots of credit to
 [Josh Collinsworth's post on accessible toggle buttons](https://joshcollinsworth.com/blog/accessible-toggle-buttons)
 which served as a guidebook on making this component.
+
+## Styles
+
+- `--switch-radius`: Set the border radius of the switch element. Default is 50% (fully rounded).
