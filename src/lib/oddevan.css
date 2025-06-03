@@ -30,32 +30,26 @@
 	--radius-inner: calc(var(--radius) * .66);
 	--action-hover-light: color-mix(in srgb, var(--action-light) 90%, white);
 	--action-hover-dark: color-mix(in srgb, var(--action-dark) 90%, black);
+
+	/*** Set color scheme ***/
+	color-scheme: light dark;
 }
 
-:root,
-.recolor {
-	--canvas: var(--canvas-light);
-	--on-canvas: var(--on-canvas-light);
-	--on-canvas-muted: var(--on-canvas-muted-light);
-	--action: var(--action-light);
-	--on-action: var(--on-action-light);
-	--shaded: var(--shaded-light);
-	--border: var(--border-light);
-	--scheme: light;
-	--action-hover: var(--action-hover-light);
-}
+/* @media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+	}
+} */
 
-.dark,
-.dark .recolor {
-	--canvas: var(--canvas-dark);
-	--on-canvas: var(--on-canvas-dark);
-	--on-canvas-muted: var(--on-canvas-muted-dark);
-	--action: var(--action-dark);
-	--on-action: var(--on-action-dark);
-	--shaded: var(--shaded-dark);
-	--border: var(--border-dark);
-	--scheme: dark;
-	--action-hover: var(--action-hover-dark);
+:root {
+	--canvas: light-dark(var(--canvas-light), var(--canvas-dark));
+	--on-canvas: light-dark(var(--on-canvas-light), var(--on-canvas-dark));
+	--on-canvas-muted: light-dark(var(--on-canvas-muted-light), var(--on-canvas-muted-dark));
+	--action: light-dark(var(--action-light), var(--action-dark));
+	--on-action: light-dark(var(--on-action-light), var(--on-action-dark));
+	--shaded: light-dark(var(--shaded-light), var(--shaded-dark));
+	--border: light-dark(var(--border-light), var(--border-dark));
+	--action-hover: light-dark(var(--action-hover-light), var(--action-hover-dark));
 }
 
 body {
@@ -63,7 +57,6 @@ body {
 	color: var(--on-canvas);
 	margin: 0;
 	font-family: var(--sl-font-sans);
-	color-scheme: var(--scheme);
 }
 
 a {

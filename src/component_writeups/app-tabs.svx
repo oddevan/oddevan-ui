@@ -2,6 +2,9 @@
 layout: demo
 name: App Tabs
 oneline: Responsive primary navigation
+css: false
+webc: false
+svelte: true
 ---
 
 <script lang="ts">
