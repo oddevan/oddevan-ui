@@ -1,26 +1,33 @@
 @import url(reset.css);
 
 :root {
-	--canvas-light: white;
-	--canvas-dark: black;
+	--body-light: #ffffff;
+	--on-body-light: #000000;
+	--accent-light: #369;
+	--danger-light: #b51a00;
+	--shaded-light: #d6d6d6;
+	--shaded-accent-light: #caf0fe;
+	--shaded-danger-light: #ffdad8;
+	--border-light: #7a7a7a;
+	--border-accent-light: #53d5fd;
+	--border-danger-light: #ffb5af;
+	--canvas-light: #006d8f;
+	--on-canvas-light: #ebebeb;
+	--on-canvas-accent-light: #fffb00;
 
-	--on-canvas-light: #0c0a09;
-	--on-canvas-dark: #fafaf9;
-
-	--on-canvas-muted-light: #726e6c;
-	--on-canvas-muted-dark: #a39e9a;
-
-	--action-light: #369;
-	--action-dark: #5af;
-
-	--on-action-light: white;
-	--on-action-dark: black;
-
-	--shaded-light: #f7f7f7;
-	--shaded-dark: #222020;
-
-	--border-light: #b3b2b2;
-	--border-dark: #7f7876;
+	--body-dark: #000000;
+	--on-body-dark: #ffffff;
+	--accent-dark: #53d5fd;
+	--danger-dark: #ff8c82;
+	--shaded-dark: #444444;
+	--shaded-accent-dark: #004d65;
+	--shaded-danger-dark: #831100;
+	--border-dark: #aaaaaa;
+	--border-accent-dark: #008cb4;
+	--border-danger-dark: #e32400;
+	--canvas-dark: #006d8f;
+	--on-canvas-dark: #ebebeb;
+	--on-canvas-accent-dark: #fffb00;
 
 	--radius: 0.5em;
 	--spacing: .75em;
@@ -33,34 +40,31 @@
 
 	/*** Set color scheme ***/
 	color-scheme: light dark;
-}
 
-/* @media (prefers-color-scheme: dark) {
-	:root {
-		color-scheme: dark;
-	}
-} */
-
-:root {
+	--body: light-dark(var(--body-light), var(--body-dark));
+	--on-body: light-dark(var(--on-body-light), var(--on-body-dark));
+	--accent: light-dark(var(--accent-light), var(--accent-dark));
+	--danger: light-dark(var(--danger-light), var(--danger-dark));
+	--shaded: light-dark(var(--shaded-light), var(--shaded-dark));
+	--shaded-accent: light-dark(var(--shaded-accent-light), var(--shaded-accent-dark));
+	--shaded-danger: light-dark(var(--shaded-danger-light), var(--shaded-danger-dark));
+	--border: light-dark(var(--border-light), var(--border-dark));
+	--border-accent: light-dark(var(--border-accent-light), var(--border-accent-dark));
+	--border-danger: light-dark(var(--border-danger-light), var(--border-danger-dark));
 	--canvas: light-dark(var(--canvas-light), var(--canvas-dark));
 	--on-canvas: light-dark(var(--on-canvas-light), var(--on-canvas-dark));
-	--on-canvas-muted: light-dark(var(--on-canvas-muted-light), var(--on-canvas-muted-dark));
-	--action: light-dark(var(--action-light), var(--action-dark));
-	--on-action: light-dark(var(--on-action-light), var(--on-action-dark));
-	--shaded: light-dark(var(--shaded-light), var(--shaded-dark));
-	--border: light-dark(var(--border-light), var(--border-dark));
-	--action-hover: light-dark(var(--action-hover-light), var(--action-hover-dark));
+	--on-canvas-accent: light-dark(var(--on-canvas-accent-light), var(--on-canvas-accent-dark));
 }
 
 body {
-	background-color: var(--canvas);
-	color: var(--on-canvas);
+	background-color: var(--body);
+	color: var(--on-body);
 	margin: 0;
 	font-family: var(--sl-font-sans);
 }
 
 a {
-	color: var(--action);
+	color: var(--accent);
 }
 
 nav a {
