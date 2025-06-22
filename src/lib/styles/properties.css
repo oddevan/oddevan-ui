@@ -1,0 +1,241 @@
+
+	/* Light mode colors */
+	@property --body-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffffff;
+	}
+	@property --on-body-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #000000;
+	}
+	@property --accent-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #369;
+	}
+	@property --danger-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #b51a00;
+	}
+	@property --shaded-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #d6d6d6;
+	}
+	@property --shaded-accent-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #caf0fe;
+	}
+	@property --shaded-danger-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffdad8;
+	}
+	@property --border-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #7a7a7a;
+	}
+	@property --border-accent-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #53d5fd;
+	}
+	@property --border-danger-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffb5af;
+	}
+	@property --canvas-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #006d8f;
+	}
+	@property --on-canvas-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ebebeb;
+	}
+	@property --on-canvas-accent-light {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #fffb00;
+	}
+
+	/* Dark mode colors */
+	@property --body-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #000000;
+	}
+	@property --on-body-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffffff;
+	}
+	@property --accent-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #53d5fd;
+	}
+	@property --danger-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ff8c82;
+	}
+	@property --shaded-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #444444;
+	}
+	@property --shaded-accent-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #004d65;
+	}
+	@property --shaded-danger-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #831100;
+	}
+	@property --border-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #aaaaaa;
+	}
+	@property --border-accent-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #008cb4;
+	}
+	@property --border-danger-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #e32400;
+	}
+	@property --canvas-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #006d8f;
+	}
+	@property --on-canvas-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ebebeb;
+	}
+	@property --on-canvas-accent-dark {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #fffb00;
+	}
+
+	/* Dual-mode colors (calculated later) */
+	@property --body {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffffff;
+	}
+	@property --on-body {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #000000;
+	}
+	@property --accent {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #369;
+	}
+	@property --danger {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #b51a00;
+	}
+	@property --shaded {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #d6d6d6;
+	}
+	@property --shaded-accent {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #caf0fe;
+	}
+	@property --shaded-danger {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffdad8;
+	}
+	@property --border {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #7a7a7a;
+	}
+	@property --border-accent {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #53d5fd;
+	}
+	@property --border-danger {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ffb5af;
+	}
+	@property --canvas {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #006d8f;
+	}
+	@property --on-canvas {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #ebebeb;
+	}
+	@property --on-canvas-accent {
+		syntax: "<color>";
+		inherits: true;
+		initial-value: #fffb00;
+	}
+
+	/* Spacing */
+	@property --radius {
+		syntax: "<length>";
+		inherits: true;
+		initial-value: 8px;
+	}
+	@property --spacing {
+		syntax: "<length>";
+		inherits: true;
+		initial-value: 12px;
+	}
+	@property --radius-inner {
+		syntax: "<length>";
+		inherits: true;
+		initial-value: 5px;
+	}
+
+	@property --block-spacing {
+		syntax: "<length>";
+		inherits: true;
+		initial-value: 16px;
+	}
+	@property --section-spacing {
+		syntax: "<length>";
+		inherits: true;
+		initial-value: 40px;
+	}
+
+	/* Typography */
+	@property --body-font-family {
+		syntax: "<string>";
+		inherits: true;
+		initial-value: system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	}
+	@property --heading-font-family {
+		syntax: "<string>";
+		inherits: true;
+		initial-value: system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+	}
