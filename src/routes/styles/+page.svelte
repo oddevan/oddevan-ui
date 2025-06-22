@@ -533,6 +533,7 @@ p q r s t u v w x y z {'{ | }'} ~ </pre>
 						<button type="button">&lt;button type=button&gt;</button>
 						<button type="reset">&lt;button type=reset&gt;</button>
 						<button type="button" disabled>&lt;button disabled&gt;</button>
+						<button type="submit" class="other">&lt;button type=submit class=other&gt;</button>
 					</p>
 				</fieldset>
 				<p><a href="#top">[Top]</a></p>

@@ -16,6 +16,7 @@
 		margin: 0;
 		font-family: var(--body-font-family);
 		container-type: inline-size;
+		accent-color: var(--accent);
 	}
 
 	a {
@@ -34,8 +35,10 @@
 		margin-block: var(--section-spacing);
 	}
 
-	div, p, dl, ul, ol, blockquote, details, figure {
-		margin-block: var(--block-spacing);
+	div, p, dl, ul, ol, blockquote, details, figure, table {
+		&:not(:first-child) {
+			margin-block: var(--block-spacing);
+		}
 	}
 
 	ul,ol {
@@ -52,6 +55,12 @@
 
 	dd {
 		margin-inline-start: 1.5em;
+	}
+
+	blockquote {
+		margin-inline-start: 0;
+		padding-inline-start: calc(var(--spacing) * 2 - 3px);
+		border-inline-start: 3px solid var(--accent);
 	}
 
 	details {
@@ -78,7 +87,52 @@
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		margin-block-start: var(--section-spacing);
+		&:not(:first-child) {
+			margin-block: var(--section-spacing);
+		}
 		margin-block-end: var(--block-spacing);
+	}
+
+	table {
+		border-collapse: collapse;
+	}
+
+	td, th {
+		border: 1px solid var(--border);
+		padding: 0.25em 0.5em;
+	}
+
+	th {
+		background-color: var(--shaded);
+	}
+
+	kbd, code, samp {
+		background-color: var(--shaded);
+	}
+
+	kbd {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: 0.1em 0.25em;
+	}
+
+	button, input[type=button], input[type=reset], input[type=submit] {
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+		padding: .5em 1.25em;
+		font-weight: bold;
+		background-color: var(--shaded);
+		cursor: pointer;
+	}
+
+	button, input {
+		&[type=submit]:not([class]) {
+			background-color: var(--shaded-accent);
+			border-color: var(--border-accent)
+		}
+		&[type=reset]:not([class]) {
+			background-color: var(--shaded-danger);
+			border-color: var(--border-danger)
+		}
 	}
 }

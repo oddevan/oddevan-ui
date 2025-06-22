@@ -35,8 +35,9 @@
 		--block-spacing: 1em;
 		--section-spacing: 2.5em;
 
-		--body-font-family: system-ui, sans-serif;
-		--heading-font-family: system-ui, sans-serif;
+		--emoji-fonts: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+		--body-font-family: system-ui, sans-serif, var(--emoji-fonts);
+		--heading-font-family: system-ui, sans-serif, var(--emoji-fonts);
 	}
 }
 
