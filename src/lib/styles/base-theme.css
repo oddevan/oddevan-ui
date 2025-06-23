@@ -35,6 +35,7 @@
 		--block-spacing: 1em;
 		--section-spacing: 2.5em;
 
+		/* Via https://github.com/system-fonts/modern-font-stacks (CC0) */
 		--emoji-fonts: 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 		--body-font-family: system-ui, sans-serif, var(--emoji-fonts);
 		--heading-font-family: system-ui, sans-serif, var(--emoji-fonts);
