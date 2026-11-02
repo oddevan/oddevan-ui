@@ -1,6 +1,8 @@
 # oddEvan UI
 
-Because I can. Maybe I can.
+~~Because I can. Maybe I can.~~ I can't. Or rather, I don't want to. If I end up doing something in this space I'll update this. But for now, ✌️. Original README follows:
+
+---
 
 Current iteration is based on [Shoelace](https://shoelace.style), the web components that are going to become
 [Web Awesome](https://www.kickstarter.com/projects/fontawesome/web-awesome). I'm aiming to have very little global CSS
